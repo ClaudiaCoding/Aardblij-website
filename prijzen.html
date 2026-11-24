@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vaste prijzen per groep, incl. btw: € 450 voor 1–10 deelnemers, € 600 voor 11–20 en € 750 voor 21–30. Kunstenaar en materialen inbegrepen.">
+    <title>Prijzen · Aardblij Workshops</title>
+    <link rel="stylesheet" href="stijl.css?v=20261124-6">
+    <link rel="canonical" href="https://aardblijworkshops.nl/prijzen.html">
+    <meta name="theme-color" content="#2d5016">
+
+    <!-- Icoontje in het browsertabblad en op het beginscherm van telefoons -->
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" href="images/icoon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Voorbeeld bij delen via WhatsApp, Facebook, LinkedIn enz. -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Aardblij Workshops">
+    <meta property="og:locale" content="nl_NL">
+    <meta property="og:title" content="Prijzen · Aardblij Workshops">
+    <meta property="og:description" content="Vaste prijzen per groep, incl. btw: € 450 voor 1–10 deelnemers, € 600 voor 11–20 en € 750 voor 21–30. Kunstenaar en materialen inbegrepen.">
+    <meta property="og:url" content="https://aardblijworkshops.nl/prijzen.html">
+    <meta property="og:image" content="https://aardblijworkshops.nl/images/deelafbeelding.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Aardblij Workshops: creatieve workshops door heel Nederland">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        /* Alleen voor deze pagina. Gedeelde stijl (titel, intro, kaders, afsluitend blok) staat in stijl.css */
+
+        .section-title {
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 1.2;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-lead {
+            max-width: 700px;
+            margin: 0 auto 50px;
+            text-align: center;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #555555;
+        }
+
+        /* Prijskaarten */
+        .prijs-section { padding-top: 0; }
+
+        .prijs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .prijs-card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .prijs-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .prijs-kop {
+            background-color: #2d5016;
+            color: #ffffff;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .prijs-kop .groep {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #e0e0e0;
+        }
+
+        .prijs-kop .aantal {
+            display: block;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+
+        .prijs-body {
+            padding: 1.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            flex-grow: 1;
+        }
+
+        .bedrag {
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 1.1;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .bedrag.tekst { font-size: 28px; padding-block: 6px; }
+
+        .btw {
+            font-size: 14px;
+            color: #555555;
+        }
+
+        .prijs-body p.uitleg {
+            font-size: 0.95rem;
+            color: #555555;
+            margin-top: 0.5rem;
+            flex-grow: 1;
+        }
+
+        .prijs-body .cta-button {
+            align-self: center;
+            margin-top: 0.75rem;
+        }
+
+        .prijs-note {
+            text-align: center;
+            font-size: 14px;
+            color: #555555;
+            margin-top: 30px;
+        }
+
+        /* Inbegrepen: witte kaarten op een grijze achtergrond */
+        .inbegrepen { background-color: #fafafa; border-block: 1px solid #e0e0e0; }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .feature-card { background-color: #ffffff; }
+
+        /* Locatie */
+        .locatie-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .highlight-box p + p { margin-top: 10px; }
+
+        .reiskosten {
+            margin-top: 6px;
+            padding-left: 20px;
+            font-size: 0.95rem;
+            color: #555555;
+            line-height: 1.8;
+        }
+
+        .reiskosten li::marker { color: #2d5016; }
+
+        .highlight-box strong { color: #000000; font-weight: 600; }
+
+        /* Workshops waarvoor het geldt */
+        .workshop-lijst {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Elke box linkt naar de pagina (of kaart) van die workshop */
+        .workshop-lijst a {
+            display: inline-block;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #000000;
+            text-decoration: none;
+            background: #ffffff;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .workshop-lijst a:hover { border-color: #2d5016; color: #2d5016; }
+
+        .workshops-footer {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* iPad liggend */
+        @media (max-width: 1024px) {
+            .prijs-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+            .section-title { font-size: 34px; }
+        }
+
+        /* Telefoon en iPad staand */
+        @media (max-width: 768px) {
+            .section-title { font-size: 28px; margin-bottom: 20px; }
+            .section-lead { font-size: 0.9rem; margin-bottom: 30px; }
+
+            .prijs-grid, .feature-grid, .locatie-grid { grid-template-columns: 1fr; gap: 20px; }
+            .prijs-card { border-radius: 6px; }
+            .bedrag { font-size: 34px; }
+        }
+
+        /* Kleine telefoon */
+        @media (max-width: 480px) {
+            .section-title { font-size: 24px; }
+            .section-lead { font-size: 0.85rem; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .prijs-card:hover { transform: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigatie -->
+    <nav>
+        <div class="logo"><a href="index.html" class="logo-home" title="Naar de homepage"><img src="images/aardbei.png" alt="Aardblij Workshops, naar de homepage" class="logo-beeld" width="56" height="56"></a><a href="#top" class="logo-tekst" title="Terug naar boven">Aardblij Workshops</a></div>
+        <button class="nav-toggle" aria-label="Menu openen" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="workshops.html">Workshops</a></li>
+                <li><a href="prijzen.html" aria-current="page">Prijzen</a></li>
+                <li><a href="offerte.html">Offerte</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+            <button type="button" class="cta-button" data-aanvraag>Reserveer</button>
+        </div>
+    </nav>
+
+    <!-- Intro -->
+    <section id="top">
+        <div class="inner">
+            <h1 class="page-title">Prijzen</h1>
+            <div class="intro">
+                <p>Al onze workshops worden gegeven door ervaren kunstenaars, met materialen van goede kwaliteit en volledig verzorgd. Regelt u de ruimte en de catering, dan zorgen wij voor de rest. Wilt u nog meer uit handen geven? Dat regelen wij graag voor u.</p>
+                <p>Onderstaande prijzen zijn een indicatie en gelden voor al onze workshops. Er kunnen mogelijk nog reiskosten gerekend worden.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prijzen -->
+    <section class="prijs-section" id="tarieven">
+        <div class="inner">
+            <div class="prijs-grid">
+                <article class="prijs-card">
+                    <div class="prijs-kop">
+                        <span class="groep">Kleine groep</span>
+                        <span class="aantal">1 – 10 deelnemers</span>
+                    </div>
+                    <div class="prijs-body">
+                        <span class="bedrag">€ 450</span>
+                        <span class="btw">per workshop, incl. btw</span>
+                        <p class="uitleg">Ideaal voor een verjaardag, een vriendenweekend of een klein team.</p>
+                        <a href="offerte.html" class="cta-button">Offerte Aanvragen</a>
+                    </div>
+                </article>
+
+                <article class="prijs-card">
+                    <div class="prijs-kop">
+                        <span class="groep">Middelgrote groep</span>
+                        <span class="aantal">11 – 20 deelnemers</span>
+                    </div>
+                    <div class="prijs-body">
+                        <span class="bedrag">€ 600</span>
+                        <span class="btw">per workshop, incl. btw</span>
+                        <p class="uitleg">Voor een afdeling of een groot familiefeest. Ook mogelijk in ons eigen atelier in de Betuwe.</p>
+                        <a href="offerte.html" class="cta-button">Offerte Aanvragen</a>
+                    </div>
+                </article>
+
+                <article class="prijs-card">
+                    <div class="prijs-kop">
+                        <span class="groep">Grote groep</span>
+                        <span class="aantal">21 – 30 deelnemers</span>
+                    </div>
+                    <div class="prijs-body">
+                        <span class="bedrag">€ 750</span>
+                        <span class="btw">per workshop, incl. btw</span>
+                        <p class="uitleg">Voor een teamuitje met de hele organisatie, bij u op locatie.</p>
+                        <a href="offerte.html" class="cta-button">Offerte Aanvragen</a>
+                    </div>
+                </article>
+
+                <article class="prijs-card">
+                    <div class="prijs-kop">
+                        <span class="groep">Evenement</span>
+                        <span class="aantal">Meer dan 30 deelnemers</span>
+                    </div>
+                    <div class="prijs-body">
+                        <span class="bedrag tekst">Op aanvraag</span>
+                        <span class="btw">prijs op maat</span>
+                        <p class="uitleg">Wij stellen graag een voorstel op maat voor u samen, met meerdere kunstenaars.</p>
+                        <a href="offerte.html" class="cta-button">Offerte Aanvragen</a>
+                    </div>
+                </article>
+            </div>
+            <p class="prijs-note">Prijzen per workshop voor de hele groep, niet per persoon. Exclusief eventuele reiskosten.</p>
+        </div>
+    </section>
+
+    <!-- Wat is inbegrepen -->
+    <section class="inbegrepen" id="inbegrepen">
+        <div class="inner">
+            <h2 class="section-title">Wat is inbegrepen?</h2>
+            <p class="section-lead">U hoeft alleen uw creativiteit mee te brengen. Wij zorgen voor alles wat nodig is voor een geslaagde workshop.</p>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Ervaren kunstenaar</h3>
+                    <p>Wij koppelen u aan een kunstenaar die past bij uw groep en uw wensen.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Alle materialen</h3>
+                    <p>Materialen van goede kwaliteit, van verf en doeken tot wax en kralen.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Opbouw en opruimen</h3>
+                    <p>Wij richten de ruimte in en laten alles weer netjes achter.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Mee naar huis</h3>
+                    <p>Iedere deelnemer gaat naar huis met een eigen handgemaakte creatie.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locatie -->
+    <section id="locatie">
+        <div class="inner">
+            <h2 class="section-title">Op locatie of in ons atelier in de Betuwe</h2>
+            <p class="section-lead">Wij verzorgen onze workshops zowel bij u op locatie als in ons eigen atelier in de Betuwe.</p>
+            <div class="locatie-grid">
+                <div class="highlight-box">
+                    <h3>Bij u op locatie</h3>
+                    <p>Wij komen naar u toe, door heel Nederland. U regelt de ruimte en de catering, wij nemen de kunstenaar en alle materialen mee.</p>
+                    <p>Wilt u ook de ruimte of de catering uit handen geven? Vermeld het in uw offerteaanvraag, dan regelen wij het graag.</p>
+                    <p><strong>Reiskosten</strong> (per workshop, inclusief btw):</p>
+                    <ul class="reiskosten">
+                        <li>Tot 50 km van Geldermalsen: geen reiskosten</li>
+                        <li>50 tot 100 km: € 50</li>
+                        <li>100 tot 150 km: € 100</li>
+                        <li>Meer dan 150 km: op aanvraag</li>
+                    </ul>
+                </div>
+                <div class="highlight-box">
+                    <h3>In ons eigen atelier</h3>
+                    <p>Voor groepen van 2 tot 20 deelnemers bent u van harte welkom in ons eigen atelier in de Betuwe.</p>
+                    <p>Koffie, thee, frisdrank, bier, wijn en een hapje zijn dan inbegrepen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Geldt voor -->
+    <section class="inbegrepen" id="workshops">
+        <div class="inner">
+            <h2 class="section-title">Geldt voor al onze workshops</h2>
+            <p class="section-lead">Of u nu kiest voor schilderen, kaarsen maken of mozaïeken: de prijs hangt alleen af van de grootte van uw groep.</p>
+            <ul class="workshop-lijst">
+                <li><a href="cocktail-kaarsen.html">Cocktail Kaarsen Maken</a></li>
+                <li><a href="epoxy-gieten.html">Epoxy Gieten</a></li>
+                <li><a href="alpacas-schilderen.html">Schilderen tussen Alpacas</a></li>
+                <li><a href="workshops.html#appelboomgaard">Schilderen in de Appelboomgaard</a></li>
+                <li><a href="workshops.html#voedselbos">Schilderen in het Voedselbos</a></li>
+                <li><a href="workshops.html#bosbaden">Bosbaden</a></li>
+                <li><a href="sieraden-maken.html">Sieraden Maken</a></li>
+                <li><a href="mozaieken.html">Mozaïeken</a></li>
+                <li><a href="bedazzelen.html">Bedazzelen</a></li>
+                <li><a href="verf-therapie.html">Verf Therapie</a></li>
+                <li><a href="fotoshoot.html">Fotoshoot met Telefoon</a></li>
+                <!-- Kerstkransen tijdelijk verborgen: <li><a href="kerstkransen.html">Kerstkransen en Kerststukjes Maken</a></li> -->
+            </ul>
+            <div class="workshops-footer">
+                <a href="workshops.html" class="cta-button groot">Workshops Bekijken</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" id="offerte">
+        <h2>Klaar om te creëren?</h2>
+        <p>Vraag vrijblijvend een offerte aan. Wij nemen zo snel mogelijk contact met u op om alles af te stemmen.</p>
+        <div class="cta-knoppen">
+            <a href="offerte.html" class="cta-button groot">Offerte Aanvragen</a>
+        </div>
+    </section>
+
+    <!-- Voettekst -->
+    <footer>
+        <p>&copy; 2026 Aardblij Workshops. Alle rechten voorbehouden.</p>
+        <div class="footer-links">
+            <a href="privacybeleid.html">Privacybeleid</a>
+            <a href="algemene-voorwaarden.html">Algemene Voorwaarden</a>
+            <a href="contact.html">Contact</a>
+            <span>Instagram</span>
+        </div>
+    </footer>
+
+    <script src="https://forminit.com/sdk/v1/forminit.js"></script>
+
+    <script src="site.js?v=20261124-6"></script>
+    <script src="reserveer.js?v=20261124-6"></script>
+</body>
+</html>

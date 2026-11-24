@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bekijk al onze workshops: schilderen, cocktailkaarsen maken, mozaïeken, sieraden maken en meer. Bij u op locatie of in ons eigen atelier in de Betuwe.">
+    <title>Workshops · Aardblij Workshops</title>
+    <link rel="stylesheet" href="stijl.css?v=20261124-6">
+    <link rel="canonical" href="https://aardblijworkshops.nl/workshops.html">
+    <meta name="theme-color" content="#2d5016">
+
+    <!-- Icoontje in het browsertabblad en op het beginscherm van telefoons -->
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" href="images/icoon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Voorbeeld bij delen via WhatsApp, Facebook, LinkedIn enz. -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Aardblij Workshops">
+    <meta property="og:locale" content="nl_NL">
+    <meta property="og:title" content="Workshops · Aardblij Workshops">
+    <meta property="og:description" content="Bekijk al onze workshops: schilderen, cocktailkaarsen maken, mozaïeken, sieraden maken en meer. Bij u op locatie of in ons eigen atelier in de Betuwe.">
+    <meta property="og:url" content="https://aardblijworkshops.nl/workshops.html">
+    <meta property="og:image" content="https://aardblijworkshops.nl/images/deelafbeelding.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Aardblij Workshops: creatieve workshops door heel Nederland">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        /* Alleen voor deze pagina. Gedeelde stijl (kaarten, titel, intro) staat in stijl.css */
+
+        .workshops-section { padding-top: 0; }
+
+        /* Afsluitend blok met grijze achtergrond */
+        .cta-section {
+            background-color: #fafafa;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        /* iPad liggend: twee kaarten naast elkaar */
+        @media (max-width: 1024px) {
+            .workshops-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* Telefoon en iPad staand: één kaart per rij */
+        @media (max-width: 768px) {
+            .workshops-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigatie -->
+    <nav>
+        <div class="logo"><a href="index.html" class="logo-home" title="Naar de homepage"><img src="images/aardbei.png" alt="Aardblij Workshops, naar de homepage" class="logo-beeld" width="56" height="56"></a><a href="#top" class="logo-tekst" title="Terug naar boven">Aardblij Workshops</a></div>
+        <button class="nav-toggle" aria-label="Menu openen" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="workshops.html" aria-current="page">Workshops</a></li>
+                <li><a href="prijzen.html">Prijzen</a></li>
+                <li><a href="offerte.html">Offerte</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+            <button type="button" class="cta-button" data-aanvraag>Reserveer</button>
+        </div>
+    </nav>
+
+    <!-- Intro -->
+    <section id="top">
+        <div class="inner">
+            <h1 class="page-title">Onze Workshops</h1>
+            <div class="intro">
+                <p>Wij geven workshops in diverse stijlen, door heel Nederland. Wij verzorgen al onze workshops zowel bij u op locatie als in ons eigen atelier in de Betuwe. U hoeft geen ervaring te hebben en alle materialen zijn inbegrepen.</p>
+                <p>De prijs hangt alleen af van de grootte van uw groep. Bekijk de <a href="prijzen.html">prijzen</a> voor een indicatie.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workshops -->
+    <section class="workshops-section" id="workshops">
+        <div class="inner">
+            <div class="workshops-grid">
+                <article class="workshop-card">
+                    <div class="workshop-image"><img src="images/cocktail-kaarsen-kaart.jpg" alt="Drie zelfgemaakte cocktailkaarsen in coupeglazen: roze met limoen, oranje met sinaasappel en een espresso martini met koffiebonen" width="800" height="600" loading="lazy" style="object-position: 50% 35%;"></div>
+                    <div class="workshop-content">
+                        <h2 class="workshop-title">Cocktail Kaarsen Maken</h2>
+                        <p class="workshop-description">Giet uw favoriete cocktail in een prachtige geurkaars. U gaat naar huis met een kaars die eruitziet als een echt drankje.</p>
+                        <a href="cocktail-kaarsen.html" class="workshop-link">Meer informatie</a>
+                    </div>
+                </article>
+
+                <article class="workshop-card">
+                    <div class="workshop-image"><img src="images/epoxy-gieten-kaart.jpg" alt="Ovale schaaltjes van epoxy in paars, wit, roze en zwart, met bladgoud en gedroogde bloemetjes" width="800" height="600" loading="lazy"></div>
+                    <div class="workshop-content">
+                        <h2 class="workshop-title">Epoxy Gieten</h2>
+                        <p class="workshop-description">Giet uw eigen onderzetters, kaarsenhouders of een borrelplank van epoxy, met glitter, bloemen en kleur. Ook mallen op maat!</p>
+                        <a href="epoxy-gieten.html" class="workshop-link">Meer informatie</a>
+                    </div>
+                </article>
+
+                <article class="workshop-card">
+                    <div class="workshop-image"><img src="images/alpacas-schilderen-kaart.jpg" alt="Deelnemers schilderen in de wei, met alpaca's vlak bij het hek" width="800" height="533" loading="lazy"></div>
+                    <div class="workshop-content">
+                        <h2 class="workshop-title">Schilderen tussen Alpacas</h2>
+                        <p class="workshop-description">Schilder schattige alpaca's terwijl u deze vriendelijke dieren ontmoet. Een unieke en gezellige workshop!</p>
+                        <a href="alpacas-schilderen.html" class="workshop-link">Meer informatie</a>
+                    </div>
+                </article>
+
+                <article class="workshop-card" id="appelboomgaard">
+                    <div class="workshop-image" aria-hidden="true"><img class="pixel-icoon" src="images/iconen/boom.svg" alt="" width="12" height="12"></div>
+                    <div class="workshop-content">
+                        <h2 class="workshop-title">Schilderen in de Appelboomgaard</h2>
+                        <p class="workshop-description">Schilder buiten in een prachtige appelboomgaard, met de natuur als inspiratie voor uw creativiteit.</p>
+                        <a href="offerte.html" class="workshop-link">Offerte Aanvragen</a>
+                    </div>
+                </article>
+
+                <article class="workshop-card" id="voedselbos">
+                    <div class="workshop-image" aria-hidden="true"><img class="pixel-icoon" src="images/iconen/dennenboom.svg" alt="" width="12" height="12"></div>
+                    <div class="workshop-content">
+                        <h2 class="workshop-title">Schilderen in het Voedselbos</h2>
+                        <p class="workshop-description">Schilder de prachtige natuur en planten van een voedselbos, en leer tijdens een rondleiding meer over het bos.</p>
+                        <a href="offerte.html" class="workshop-link">Offerte Aanvragen</a>
+                    </div>
+                </article>
+
+                <article class="workshop-card" id="bosbaden">
+                    <div class="workshop-image" aria-hidden="true"><img class="pixel-icoon" src="images/iconen/yoga.svg" alt="" width="12" height="12"></div>
+                    <div class="workshop-content">
+                        <h2 class="workshop-title">Bosbaden</h2>
+                        <p class="workshop-description">Shinrin-yoku: geniet van een rustgevende dag in het bos. Adem de frisse boslucht in en ontspan volledig.</p>
+                        <a href="offerte.html" class="workshop-link">Offerte Aanvragen</a>
+                    </div>
+                </article>
+
+                <article class="workshop-card">
+                    <div class="workshop-image"><img src="images/sieraden-edelsteen.jpg" alt="Drie kettingen van groene, roze en grijze edelsteenkralen met gouden tussenstukjes" width="736" height="1014" loading="lazy" style="object-position: 50% 55%;"></div>
+                    <div class="workshop-content">
+                        <h2 class="workshop-title">Sieraden Maken</h2>
+                        <p class="workshop-description">Ontwerp en maak uw eigen unieke armbanden en kettingen met prachtige kralen. Laat uw creativiteit spreken!</p>
+                        <a href="sieraden-maken.html" class="workshop-link">Meer informatie</a>
+                    </div>
+                </article>
+
+                <article class="workshop-card">
+                    <div class="workshop-image"><img src="images/mozaieken-kaart.jpg" alt="Drie houten borrelplanken met een mozaïek van blauwe, groene en gele steentjes" width="800" height="600" loading="lazy"></div>
+                    <div class="workshop-content">
+                        <h2 class="workshop-title">Mozaïeken</h2>
+                        <p class="workshop-description">Maak een prachtig mozaïek, bijvoorbeeld op een borrelplank. Verfijnd handwerk met kleur en patroon!</p>
+                        <a href="mozaieken.html" class="workshop-link">Meer informatie</a>
+                    </div>
+                </article>
+
+                <article class="workshop-card">
+                    <div class="workshop-image"><img src="images/bedazzelen-kaart.jpg" alt="Vijf aanstekers volledig beplakt met glinsterende steentjes, kraaltjes en bedeltjes" width="800" height="600" loading="lazy"></div>
+                    <div class="workshop-content">
+                        <h2 class="workshop-title">Bedazzelen</h2>
+                        <p class="workshop-description">Laat het glinsteren! Versier een aansteker, mok, onderzetter, pot of uw eigen voorwerp met sprankelende steentjes. Alle materialen zijn inbegrepen.</p>
+                        <a href="bedazzelen.html" class="workshop-link">Meer informatie</a>
+                    </div>
+                </article>
+
+                <article class="workshop-card" id="verf-therapie">
+                    <div class="workshop-image"><img src="images/verf-therapie-kaart.jpg" alt="Deelnemers in verfpakken schilderen op een groot blauw zeil aan het water, met verf en kwasten om zich heen" width="800" height="600" loading="lazy"></div>
+                    <div class="workshop-content">
+                        <h2 class="workshop-title">Verf Therapie</h2>
+                        <p class="workshop-description">Gooi de verf op het doek en voel de vrijheid! Een expressieve workshop vol creativiteit en plezier, waarbij u de stress van u af laat glijden.</p>
+                        <a href="verf-therapie.html" class="workshop-link">Meer informatie</a>
+                    </div>
+                </article>
+
+                <article class="workshop-card">
+                    <div class="workshop-image"><img src="images/fotoshoot-kaart.jpg" alt="Een opvallende glazen toren tussen bakstenen gebouwen, gefotografeerd vanaf de straat" width="800" height="600" loading="lazy" style="object-position: 35% 10%;"></div>
+                    <div class="workshop-content">
+                        <h2 class="workshop-title">Fotoshoot met Telefoon</h2>
+                        <p class="workshop-description">Leer prachtige foto's maken met uw telefoon. Tips, trucs en compositietechnieken voor betere plaatjes!</p>
+                        <a href="fotoshoot.html" class="workshop-link">Meer informatie</a>
+                    </div>
+                </article>
+
+                <!-- Kerstkransen tijdelijk verborgen (pagina kerstkransen.html staat nog online). Terugzetten? Haal de commentaartekens weg.
+                <article class="workshop-card">
+                    <div class="workshop-image" aria-hidden="true"><img class="pixel-icoon" src="images/iconen/kerstboom.svg" alt="" width="12" height="12"></div>
+                    <div class="workshop-content">
+                        <h2 class="workshop-title">Kerstkransen en Kerststukjes Maken</h2>
+                        <p class="workshop-description">Maak mooie kerstkransen en -stukjes voor uw deur en interieur, met de mooiste seizoensdecoraties en groene takken. Alleen in ons atelier of tussen de alpaca's.</p>
+                        <a href="kerstkransen.html" class="workshop-link">Meer informatie</a>
+                    </div>
+                </article>
+                -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Klaar om te creëren?</h2>
+        <p>Vraag vrijblijvend een offerte aan. Wij nemen zo snel mogelijk contact met u op om alles af te stemmen.</p>
+        <div class="cta-knoppen">
+            <a href="offerte.html" class="cta-button groot">Offerte Aanvragen</a>
+        </div>
+    </section>
+
+    <!-- Voettekst -->
+    <footer>
+        <p>&copy; 2026 Aardblij Workshops. Alle rechten voorbehouden.</p>
+        <div class="footer-links">
+            <a href="privacybeleid.html">Privacybeleid</a>
+            <a href="algemene-voorwaarden.html">Algemene Voorwaarden</a>
+            <a href="contact.html">Contact</a>
+            <span>Instagram</span>
+        </div>
+    </footer>
+
+    <script src="https://forminit.com/sdk/v1/forminit.js"></script>
+
+    <script src="site.js?v=20261124-6"></script>
+    <script src="reserveer.js?v=20261124-6"></script>
+</body>
+</html>

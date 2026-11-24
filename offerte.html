@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vraag vrijblijvend een offerte aan voor een creatieve workshop. Wij nemen zo snel mogelijk contact met u op met een voorstel op maat.">
+    <title>Offerte · Aardblij Workshops</title>
+    <link rel="stylesheet" href="stijl.css?v=20261124-6">
+    <link rel="canonical" href="https://aardblijworkshops.nl/offerte.html">
+    <meta name="theme-color" content="#2d5016">
+
+    <!-- Icoontje in het browsertabblad en op het beginscherm van telefoons -->
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" href="images/icoon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Voorbeeld bij delen via WhatsApp, Facebook, LinkedIn enz. -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Aardblij Workshops">
+    <meta property="og:locale" content="nl_NL">
+    <meta property="og:title" content="Offerte · Aardblij Workshops">
+    <meta property="og:description" content="Vraag vrijblijvend een offerte aan voor een creatieve workshop. Wij nemen zo snel mogelijk contact met u op met een voorstel op maat.">
+    <meta property="og:url" content="https://aardblijworkshops.nl/offerte.html">
+    <meta property="og:image" content="https://aardblijworkshops.nl/images/deelafbeelding.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Aardblij Workshops: creatieve workshops door heel Nederland">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        /* Alleen voor deze pagina. Gedeelde stijl (titel, intro, kaders) staat in stijl.css */
+        
+
+        /* Formulier */
+        .formulier-section { padding-top: 0; }
+
+        .formulier-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .form-card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .form-kop {
+            background-color: #2d5016;
+            color: #ffffff;
+            padding: 1.5rem 2rem;
+        }
+
+        .form-kop h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .form-kop p {
+            font-size: 14px;
+            color: #e0e0e0;
+            margin-top: 4px;
+        }
+
+        .form-body {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem 1.75rem;
+        }
+
+        .veld {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            min-width: 0;
+        }
+
+        .veld.breed { grid-column: 1 / -1; }
+
+        .veld label,
+        .veld legend {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .verplicht { color: #2d5016; }
+
+        .veld .hulp {
+            font-size: 13px;
+            color: #555555;
+        }
+
+        .veld input,
+        .veld select,
+        .veld textarea {
+            width: 100%;
+            font-family: inherit;
+            font-size: 15px;
+            color: #000000;
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 0.7rem 0.85rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .veld select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23555555' stroke-width='1.5'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.85rem center;
+            padding-right: 2.25rem;
+        }
+
+        .veld textarea {
+            min-height: 140px;
+            resize: vertical;
+            line-height: 1.6;
+        }
+
+        .veld input::placeholder,
+        .veld textarea::placeholder { color: #8a8a8a; }
+
+        .veld input:hover,
+        .veld select:hover,
+        .veld textarea:hover { border-color: #b8b8b8; }
+
+        .veld input:focus,
+        .veld select:focus,
+        .veld textarea:focus {
+            outline: none;
+            border-color: #2d5016;
+            box-shadow: 0 0 0 3px rgba(45, 80, 22, 0.15);
+        }
+
+        .veld.fout input,
+        .veld.fout select { border-color: #9b2c1f; }
+
+        .foutmelding {
+            display: none;
+            font-size: 13px;
+            color: #9b2c1f;
+        }
+
+        .veld.fout .foutmelding { display: block; }
+
+        /* Keuze locatie */
+        fieldset.veld {
+            border: none;
+        }
+
+        .keuzes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .keuze {
+            position: relative;
+        }
+
+        .keuze input {
+            position: absolute;
+            opacity: 0;
+            width: 1px;
+            height: 1px;
+        }
+
+        .keuze label {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 0.85rem 1rem;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+
+        .keuze label span {
+            font-size: 13px;
+            font-weight: 400;
+            color: #555555;
+        }
+
+        .keuze label:hover { border-color: #b8b8b8; }
+
+        .keuze input:checked + label {
+            border-color: #2d5016;
+            background-color: #f9f9f9;
+            box-shadow: inset 4px 0 0 #2d5016;
+        }
+
+        .keuze input:focus-visible + label {
+            outline: 2px solid #2d5016;
+            outline-offset: 3px;
+        }
+
+        .form-voet {
+            border-top: 1px solid #e0e0e0;
+            padding: 1.5rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .form-voet p {
+            font-size: 14px;
+            color: #555555;
+            max-width: 46ch;
+        }
+
+        /* Bedankt */
+        .bedankt {
+            display: none;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .bedankt h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .bedankt p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #555555;
+            max-width: 52ch;
+            margin: 0 auto 24px;
+        }
+
+        .form-card.verstuurd form { display: none; }
+        .form-card.verstuurd .bedankt { display: block; }
+
+        /* Zijkolom */
+        .zijkolom {
+            display: grid;
+            gap: 1.5rem;
+            position: sticky;
+            top: 96px;
+        }
+
+        .stappen {
+            list-style: none;
+            counter-reset: stap;
+            display: grid;
+            gap: 14px;
+        }
+
+        .stappen li {
+            counter-increment: stap;
+            display: grid;
+            grid-template-columns: 28px 1fr;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: #555555;
+            line-height: 1.7;
+        }
+
+        .stappen li::before {
+            content: counter(stap);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: #2d5016;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stappen strong {
+            display: block;
+            color: #000000;
+            font-weight: 600;
+        }
+
+        .feature-card a {
+            color: #2d5016;
+            font-weight: 500;
+        }
+
+        /* iPad liggend */
+        @media (max-width: 1024px) {
+            .formulier-grid { grid-template-columns: 1fr; }
+            .zijkolom { position: static; grid-template-columns: 1fr 1fr; }
+        }
+
+        /* Telefoon en iPad staand */
+        @media (max-width: 768px) {
+
+            .form-card { border-radius: 6px; }
+            .form-kop { padding: 1.25rem 1.25rem; }
+            .form-body { grid-template-columns: 1fr; padding: 1.5rem 1.25rem; gap: 1.25rem; }
+            .form-voet { padding: 1.25rem; }
+            .form-voet .cta-button { width: 100%; text-align: center; }
+            .keuzes { grid-template-columns: 1fr; }
+            .zijkolom { grid-template-columns: 1fr; }
+
+        }
+
+        /* Verzenden offerteformulier */
+        .offerte-vangnet {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        .offerte-verzendfout {
+            margin: 0 2rem 1.5rem;
+            padding: 12px 16px;
+            border-left: 4px solid #9b2c1f;
+            background: #f9f9f9;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #9b2c1f;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigatie -->
+    <nav>
+        <div class="logo"><a href="index.html" class="logo-home" title="Naar de homepage"><img src="images/aardbei.png" alt="Aardblij Workshops, naar de homepage" class="logo-beeld" width="56" height="56"></a><a href="#top" class="logo-tekst" title="Terug naar boven">Aardblij Workshops</a></div>
+        <button class="nav-toggle" aria-label="Menu openen" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="workshops.html">Workshops</a></li>
+                <li><a href="prijzen.html">Prijzen</a></li>
+                <li><a href="offerte.html" aria-current="page">Offerte</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+            <button type="button" class="cta-button" data-aanvraag>Reserveer</button>
+        </div>
+    </nav>
+
+    <!-- Intro -->
+    <section id="top">
+        <div class="inner">
+            <h1 class="page-title">Uw offerte voor een workshop</h1>
+            <div class="intro">
+                <p>Een indicatie van de prijzen vindt u op onze <a href="prijzen.html">prijzenpagina</a>. Via deze pagina vraagt u een exacte offerte aan. Een aanvraag is geheel vrijblijvend: pas na uw bevestiging van onze offerte is de workshop definitief geboekt.</p>
+                <p>Na uw aanvraag nemen wij contact met u op over de details, zoals de gewenste locatie, de opbouw, de verzorging en uw eventuele extra wensen.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulier -->
+    <section class="formulier-section" id="formulier">
+        <div class="formulier-grid">
+            <div class="form-card" id="form-card">
+                <div class="form-kop">
+                    <h2>Vraag een offerte aan</h2>
+                    <p>Velden met een <span aria-hidden="true">*</span> zijn verplicht.</p>
+                </div>
+
+                <form id="offerte-form" novalidate>
+                    <div class="form-body">
+                        <div class="veld">
+                            <label for="naam">Naam <span class="verplicht" aria-hidden="true">*</span></label>
+                            <input type="text" id="naam" name="naam" autocomplete="name" required>
+                            <span class="foutmelding">Vul uw naam in.</span>
+                        </div>
+
+                        <div class="veld">
+                            <label for="email">E-mailadres <span class="verplicht" aria-hidden="true">*</span></label>
+                            <input type="email" id="email" name="email" autocomplete="email" required>
+                            <span class="foutmelding">Vul een geldig e-mailadres in.</span>
+                        </div>
+
+                        <div class="veld">
+                            <label for="telefoon">Telefoonnummer</label>
+                            <input type="tel" id="telefoon" name="telefoon" autocomplete="tel">
+                        </div>
+
+                        <div class="veld">
+                            <label for="stad">Plaats</label>
+                            <input type="text" id="stad" name="stad" autocomplete="address-level2" placeholder="Bijvoorbeeld Utrecht">
+                        </div>
+
+                        <fieldset class="veld breed">
+                            <legend>Waar wilt u de workshop?</legend>
+                            <div class="keuzes" style="margin-top: 8px;">
+                                <div class="keuze">
+                                    <input type="radio" id="plek-locatie" name="plek" value="Op locatie" checked>
+                                    <label for="plek-locatie">Bij u op locatie<span>Wij komen naar u toe, door heel Nederland</span></label>
+                                </div>
+                                <div class="keuze">
+                                    <input type="radio" id="plek-atelier" name="plek" value="In ons atelier">
+                                    <label for="plek-atelier">In ons eigen atelier<span>Voor groepen van 2 tot 20 deelnemers</span></label>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <div class="veld">
+                            <label for="workshop">Workshop</label>
+                            <select id="workshop" name="workshop" data-workshops>
+                                <option value="">Kies een workshop</option>
+                                <!-- De workshops komen uit site.js (window.AARDBLIJ.workshops) -->
+                            </select>
+                        </div>
+
+                        <div class="veld">
+                            <label for="deelnemers">Aantal deelnemers (ongeveer)</label>
+                            <input type="number" id="deelnemers" name="deelnemers" min="1" inputmode="numeric" placeholder="Bijvoorbeeld 12">
+                        </div>
+
+                        <div class="veld">
+                            <label for="datum">Gewenste datum</label>
+                            <input type="date" id="datum" name="datum">
+                            <span class="hulp">Nog geen vaste datum? Laat dit veld dan leeg.</span>
+                        </div>
+
+                        <div class="veld">
+                            <label for="gelegenheid">Gelegenheid</label>
+                            <select id="gelegenheid" name="gelegenheid">
+                                <option value="">Kies een gelegenheid</option>
+                                <option>Teamuitje</option>
+                                <option>Verjaardag of feestje</option>
+                                <option>Vriendenweekend</option>
+                                <option>Vrijgezellenfeest</option>
+                                <option>Anders</option>
+                            </select>
+                        </div>
+
+                        <div class="veld breed">
+                            <label for="opmerkingen">Heeft u nog opmerkingen of wensen?</label>
+                            <textarea id="opmerkingen" name="opmerkingen" placeholder="Bijvoorbeeld: wilt u dat wij ook de ruimte of de catering regelen?"></textarea>
+                        </div>
+
+                        <div class="offerte-vangnet" aria-hidden="true">
+                            <label for="offerte-gotcha">Laat dit veld leeg</label>
+                            <input type="text" id="offerte-gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+                        </div>
+                    </div>
+
+                    <div class="form-voet">
+                        <p>Uw aanvraag is vrijblijvend. Wij nemen zo snel mogelijk contact met u op. Wij gebruiken uw gegevens alleen om uw aanvraag te beantwoorden (<a href="privacybeleid.html">privacybeleid</a>). Op al onze workshops zijn onze <a href="algemene-voorwaarden.html">algemene voorwaarden</a> van toepassing.</p>
+                        <button type="submit" class="cta-button groot" id="offerte-verstuur">Offerte Aanvragen</button>
+                    </div>
+                    <p class="offerte-verzendfout" id="offerte-verzendfout" role="alert" hidden>Het versturen is niet gelukt. Controleer uw internetverbinding en probeer het opnieuw.</p>
+                </form>
+
+                <div class="bedankt" role="status" aria-live="polite">
+                    <h2>Hartelijk dank voor uw aanvraag!</h2>
+                    <p>Wij hebben uw aanvraag goed ontvangen en nemen zo snel mogelijk contact met u op om alles met u af te stemmen.</p>
+                    <a href="workshops.html" class="cta-button">Workshops Bekijken</a>
+                </div>
+            </div>
+
+            <aside class="zijkolom">
+                <div class="highlight-box">
+                    <h3>Zo werkt het</h3>
+                    <ol class="stappen">
+                        <li><div><strong>U vraagt een offerte aan</strong>Vrijblijvend, via dit formulier.</div></li>
+                        <li><div><strong>Wij nemen contact op</strong>Over locatie, opbouw, verzorging en uw wensen.</div></li>
+                        <li><div><strong>U ontvangt een offerte op maat</strong>Met de juiste kunstenaar voor uw groep.</div></li>
+                        <li><div><strong>U bevestigt</strong>Pas dan is uw workshop definitief geboekt.</div></li>
+                    </ol>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Alles inbegrepen</h3>
+                    <p>Een ervaren kunstenaar, alle materialen, opbouw en opruimen. Bekijk de <a href="prijzen.html">prijzen</a> voor een indicatie.</p>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- Voettekst -->
+    <footer>
+        <p>&copy; 2026 Aardblij Workshops. Alle rechten voorbehouden.</p>
+        <div class="footer-links">
+            <a href="privacybeleid.html">Privacybeleid</a>
+            <a href="algemene-voorwaarden.html">Algemene Voorwaarden</a>
+            <a href="contact.html">Contact</a>
+            <span>Instagram</span>
+        </div>
+    </footer>
+
+    <script src="https://forminit.com/sdk/v1/forminit.js"></script>
+    <script src="site.js?v=20261124-6"></script>
+    <script>
+        // Datum: niet in het verleden (vandaag volgens de klok van de bezoeker)
+        const datumVeld = document.getElementById('datum');
+        const vandaag = new Date();
+        const pad = n => String(n).padStart(2, '0');
+        datumVeld.min = vandaag.getFullYear() + '-' + pad(vandaag.getMonth() + 1) + '-' + pad(vandaag.getDate());
+
+        // Formulier controleren en versturen
+        // Verstuurt naar Forminit (Form ID en verzendhulp staan in site.js), met dezelfde veldnamen als de Reserveer-pop-up.
+        const form = document.getElementById('offerte-form');
+        const formCard = document.getElementById('form-card');
+
+        function controleer(veld) {
+            const wrapper = veld.closest('.veld');
+            const geldig = veld.checkValidity() && veld.value.trim() !== '';
+            wrapper.classList.toggle('fout', !geldig);
+            veld.setAttribute('aria-invalid', !geldig);
+            return geldig;
+        }
+
+        form.querySelectorAll('[required]').forEach(veld => {
+            veld.addEventListener('blur', () => controleer(veld));
+            veld.addEventListener('input', () => {
+                if (veld.closest('.veld').classList.contains('fout')) controleer(veld);
+            });
+        });
+
+        const offerteKnop = document.getElementById('offerte-verstuur');
+        const offerteFout = document.getElementById('offerte-verzendfout');
+
+        function offerteWaarde(id) {
+            return document.getElementById(id).value.trim();
+        }
+
+        // Veldnamen in dit formulier → namen in Forminit (dezelfde als in de Reserveer-pop-up)
+        const OFFERTE_NAMEN = [
+            ['naam', 'fi-sender-fullName'],
+            ['email', 'fi-sender-email'],
+            ['telefoon', 'fi-sender-phone'],
+            ['stad', 'fi-text-plaats'],
+            ['plek', 'fi-radio-waar'],
+            ['workshop', 'fi-select-workshop'],
+            ['deelnemers', 'fi-number-aantal_personen'],
+            ['datum', 'fi-date-voorkeursdatum'],
+            ['gelegenheid', 'fi-select-gezelschap'],
+            ['opmerkingen', 'fi-text-bericht']
+        ];
+        const OFFERTE_VELD = {
+            'sender.fullName': 'naam', 'sender.email': 'email', 'sender.phone': 'telefoon',
+            'aantal_personen': 'deelnemers', 'voorkeursdatum': 'datum'
+        };
+        const offerteFoutTekst = offerteFout.textContent;
+        const offerteLand = window.AARDBLIJ.landKeuze(document.getElementById('telefoon'));
+        let offerteBezig = false;
+
+        function toonOfferteFout(fout) {
+            offerteFout.textContent = fout.tekst || offerteFoutTekst;
+            offerteFout.hidden = false;
+            const id = fout.veld && OFFERTE_VELD[fout.veld];
+            if (id) {
+                const veld = document.getElementById(id);
+                veld.setAttribute('aria-invalid', 'true');
+                veld.focus();
+            }
+        }
+
+        function offerteAfronden() {
+            form.reset();
+            formCard.classList.add('verstuurd');
+            formCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (offerteBezig) return;
+            offerteFout.hidden = true;
+            const verplicht = [...form.querySelectorAll('[required]')];
+            const fouten = verplicht.filter(veld => !controleer(veld));
+            if (fouten.length) {
+                fouten[0].focus();
+                return;
+            }
+
+            // Spamfilter: als dit verborgen veld is ingevuld, is het een robot
+            if (offerteWaarde('offerte-gotcha')) {
+                offerteAfronden();
+                return;
+            }
+
+            const fd = new FormData(form); // vóór de knop wordt uitgeschakeld
+            window.AARDBLIJ.hernoem(fd, OFFERTE_NAMEN);
+            window.AARDBLIJ.internationaalNummer(fd, offerteLand);
+            fd.append('fi-text-via', 'Offertepagina');
+
+            offerteBezig = true;
+            offerteKnop.disabled = true;
+            offerteKnop.textContent = 'Bezig met versturen…';
+            try {
+                const resultaat = await window.AARDBLIJ.verstuur(fd);
+                if (resultaat.gelukt) offerteAfronden();
+                else toonOfferteFout(resultaat.fout);
+            } catch (fout) {
+                console.error('Forminit:', fout);
+                toonOfferteFout({ veld: null, tekst: null });
+            } finally {
+                offerteBezig = false;
+                offerteKnop.disabled = false;
+                offerteKnop.textContent = 'Offerte Aanvragen';
+            }
+        });
+    </script>
+    <script src="reserveer.js?v=20261124-6"></script>
+</body>
+</html>

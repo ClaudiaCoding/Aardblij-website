@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aardblij Huisstijl</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="images/icoon-192.png" type="image/png">
+<style>
+/* Layout: één leeskolom van 960px tussen een kop- en voetband in bosgroen; elk hoofdstuk is een eigen sectie met een dunne lijn erboven. */
+:root {
+    --groen: #2d5016;
+    --groen-donker: #1f3810;
+    --wit: #ffffff;
+    --zwart: #000000;
+    --grijs-tekst: #555555;
+    --lijn: #e0e0e0;
+    --zacht: #f5f5f5;
+    --zacht-2: #fafafa;
+    --rood: #9b2c1f;
+    --room: #f4ecdc;
+    --room-licht: #fffaf0;
+    --room-donker: #e9dcc3;
+    --roze: #fbe1dd;
+    --roze-licht: #fff3f1;
+    --roze-donker: #f3c9c3;
+    --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: var(--wit);
+    color: var(--zwart);
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0 0 auto;
+    height: env(safe-area-inset-top, 0px);
+    z-index: 10;
+    background: var(--groen);
+}
+
+.wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+p { margin: 0; }
+
+a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--groen);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+/* Kopband */
+.kop { background: var(--groen); color: var(--wit); }
+.kop .wrap { padding-block: 56px 44px; display: grid; gap: 14px; }
+.kop .merk { font-size: 15px; font-weight: 700; color: var(--lijn); }
+.kop h1 { font-size: clamp(34px, 6vw, 52px); font-weight: 700; line-height: 1.1; }
+.kop p { color: var(--lijn); max-width: 60ch; font-size: 17px; }
+
+/* Inhoudsopgave */
+.inhoud { border-bottom: 1px solid var(--lijn); }
+.inhoud ul {
+    list-style: none;
+    margin: 0;
+    padding-block: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+}
+.inhoud a {
+    color: var(--zwart);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+.inhoud a:hover { color: var(--groen); }
+
+/* Hoofdstukken */
+.hoofdstuk { padding-block: 56px; border-top: 1px solid var(--lijn); display: grid; gap: 28px; }
+.hoofdstuk:first-of-type { border-top: none; }
+.hoofdstuk > header { display: grid; gap: 10px; }
+.hoofdstuk h2 { font-size: 30px; font-weight: 700; line-height: 1.2; }
+.hoofdstuk .lead { color: var(--grijs-tekst); max-width: 65ch; line-height: 1.8; }
+.hoofdstuk h3 { font-size: 17px; font-weight: 600; }
+
+.label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--grijs-tekst);
+}
+
+.pixel-icoon { display: inline-block; width: 1.1em; height: 1.1em; vertical-align: -0.18em; image-rendering: pixelated; }
+
+code, .mono { font-family: var(--mono); font-size: 0.88em; font-variant-numeric: tabular-nums; }
+
+/* Merk in het kort */
+.kern {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1px;
+    background: var(--lijn);
+    border: 1px solid var(--lijn);
+    border-radius: 8px;
+    overflow: hidden;
+}
+.kern li { background: var(--wit); padding: 20px; display: grid; gap: 6px; align-content: start; }
+.kern strong { font-size: 16px; }
+.kern span { color: var(--grijs-tekst); font-size: 15px; line-height: 1.7; }
+
+/* Logo */
+.logo-rij {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+}
+.logo-vak {
+    border: 1px solid var(--lijn);
+    border-radius: 8px;
+    padding: 36px 24px;
+    display: grid;
+    place-items: center;
+    gap: 14px;
+    min-width: 0;
+}
+.logo-vak.op-groen { background: var(--groen); border-color: var(--groen); }
+.woordmerk { font-size: 28px; font-weight: 700; color: var(--zwart); display: flex; align-items: center; gap: 0.6rem; }
+.woordmerk img { width: 56px; height: 56px; display: block; flex-shrink: 0; }
+.logo-vak.op-room { background: radial-gradient(circle at 40% 35%, var(--room-licht) 0%, var(--room) 65%, var(--room-donker) 100%); border-color: var(--lijn); }
+.logo-vak .icoon { width: 72px; height: 72px; border-radius: 16px; border: 1px solid var(--lijn); }
+.logo-vak .deelbeeld { width: 100%; max-width: 360px; height: auto; border-radius: 4px; border: 1px solid var(--lijn); }
+.op-groen .woordmerk { color: var(--wit); }
+.logo-vak .label { text-align: center; }
+.op-groen .label { color: var(--lijn); }
+
+.regels { margin: 0; padding-left: 20px; display: grid; gap: 8px; max-width: 70ch; }
+.regels li { line-height: 1.7; }
+
+/* Kleuren */
+.kleuren {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 16px;
+}
+.kleur {
+    border: 1px solid var(--lijn);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+.staal { height: 92px; border-bottom: 1px solid var(--lijn); }
+.kleur-info { padding: 14px 16px 16px; display: grid; gap: 6px; align-content: start; flex: 1; }
+.kleur-info strong { font-size: 15px; }
+.hex {
+    justify-self: start;
+    font-family: var(--mono);
+    font-size: 13px;
+    font-variant-numeric: tabular-nums;
+    background: var(--zacht);
+    border: 1px solid var(--lijn);
+    border-radius: 4px;
+    padding: 3px 8px;
+    cursor: pointer;
+    color: var(--zwart);
+}
+.hex:hover { border-color: var(--groen); }
+.kleur-info p { font-size: 14px; color: var(--grijs-tekst); line-height: 1.6; }
+.contrast { font-size: 13px; color: var(--grijs-tekst); font-variant-numeric: tabular-nums; }
+
+/* Typografie */
+.typelijst { display: grid; border-top: 1px solid var(--lijn); }
+.typerij {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 8px 32px;
+    padding-block: 20px;
+    border-bottom: 1px solid var(--lijn);
+    align-items: baseline;
+}
+.typerij .meta { display: grid; gap: 2px; }
+.typerij .meta strong { font-size: 15px; }
+.typerij .meta span { font-size: 13px; color: var(--grijs-tekst); font-variant-numeric: tabular-nums; }
+.voorbeeld { min-width: 0; overflow-wrap: anywhere; }
+
+/* Onderdelen */
+.onderdelen {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+.onderdeel { display: grid; gap: 12px; align-content: start; min-width: 0; }
+.onderdeel .podium {
+    background: var(--zacht-2);
+    border: 1px solid var(--lijn);
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: flex-start;
+}
+.onderdeel p { font-size: 14px; color: var(--grijs-tekst); line-height: 1.7; }
+
+.cta-button {
+    background-color: var(--groen);
+    color: var(--wit);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+.cta-button:hover { background-color: var(--groen-donker); }
+.cta-button.groot { padding: 1rem 2rem; font-size: 16px; }
+
+.workshop-card {
+    width: 100%;
+    background: var(--wit);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--lijn);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+.workshop-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12); }
+.workshop-image {
+    height: 140px;
+    background: var(--groen);
+    color: var(--wit);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+}
+.workshop-content { padding: 1.25rem; display: grid; gap: 0.6rem; }
+.workshop-title { font-size: 1.15rem; font-weight: 600; }
+.workshop-description { font-size: 0.95rem; color: var(--zwart); }
+.workshop-link {
+    justify-self: start;
+    background: var(--groen);
+    color: var(--wit);
+    padding: 0.65rem 1.25rem;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.highlight-box {
+    width: 100%;
+    background-color: #f9f9f9;
+    border-left: 4px solid var(--groen);
+    padding: 1.25rem 1.5rem;
+    border-radius: 4px;
+    display: grid;
+    gap: 8px;
+}
+.highlight-box h4 { margin: 0; font-size: 1.05rem; font-weight: 600; color: var(--groen); }
+.highlight-box p { font-size: 0.95rem; color: var(--grijs-tekst); line-height: 1.8; }
+
+.feature-card {
+    width: 100%;
+    padding: 1.25rem;
+    border: 1px solid var(--lijn);
+    border-radius: 8px;
+    background-color: var(--zacht-2);
+    display: grid;
+    gap: 6px;
+}
+.feature-card h4 { margin: 0; font-size: 1.05rem; font-weight: 600; }
+.feature-card p { font-size: 0.9rem; color: var(--grijs-tekst); }
+
+/* Toon */
+.paren { display: grid; gap: 12px; }
+.paar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--lijn);
+    border-radius: 8px;
+    overflow: hidden;
+}
+.paar > div { padding: 16px 18px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.paar > div + div { border-left: 1px solid var(--lijn); background: var(--zacht-2); }
+.wel-label, .niet-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+.wel-label { color: var(--groen); }
+.niet-label { color: var(--rood); }
+.paar p { line-height: 1.7; }
+.paar .niet-tekst { color: var(--grijs-tekst); }
+
+.tabelvak { overflow-x: auto; border: 1px solid var(--lijn); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: 15px; }
+th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--lijn); vertical-align: top; }
+th { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grijs-tekst); background: var(--zacht-2); }
+tr:last-child td { border-bottom: none; }
+td.num { font-variant-numeric: tabular-nums; }
+
+.knopteksten { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.notitie {
+    font-size: 14px;
+    color: var(--grijs-tekst);
+    max-width: 70ch;
+    line-height: 1.7;
+}
+
+/* Voetband */
+.voet { background: var(--groen); color: var(--lijn); }
+.voet .wrap {
+    padding-block: 36px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px 24px;
+    font-size: 14px;
+}
+.voet strong { color: var(--wit); }
+
+@media (max-width: 640px) {
+    .woordmerk img { width: 42px; height: 42px; }
+    .kop .wrap { padding-block: 40px 32px; }
+    .hoofdstuk { padding-block: 40px; gap: 22px; }
+    .hoofdstuk h2 { font-size: 24px; }
+    .typerij { grid-template-columns: 1fr; }
+    .paar { grid-template-columns: 1fr; }
+    .paar > div + div { border-left: none; border-top: 1px solid var(--lijn); }
+    .woordmerk { font-size: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+    .workshop-card:hover { transform: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="kop">
+    <div class="wrap">
+        <div class="merk">Aardblij Workshops</div>
+        <h1>Huisstijl</h1>
+        <p>De afspraken voor naam, kleur, letters, onderdelen en toon van de website. Gebruik deze pagina bij elke nieuwe pagina of tekst, zodat alles als één merk voelt.</p>
+    </div>
+</header>
+
+<nav class="inhoud" aria-label="Inhoud">
+    <div class="wrap">
+        <ul>
+            <li><a href="#merk">Het merk</a></li>
+            <li><a href="#logo">Naam en logo</a></li>
+            <li><a href="#kleuren">Kleuren</a></li>
+            <li><a href="#typografie">Typografie</a></li>
+            <li><a href="#onderdelen">Onderdelen</a></li>
+            <li><a href="#toon">Toon en woorden</a></li>
+            <li><a href="#ruimte">Ruimte en schermen</a></li>
+            <li><a href="#beeld">Beeld</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main class="wrap">
+
+    <section class="hoofdstuk" id="merk">
+        <header>
+            <span class="label">Het merk</span>
+            <h2>Waar Aardblij voor staat</h2>
+            <p class="lead">Aardblij Workshops organiseert creatieve workshops voor groepen. Elke tekst en elke pagina vertelt in de kern hetzelfde verhaal.</p>
+        </header>
+        <ul class="kern">
+            <li><strong>Voor groepen en gelegenheden</strong><span>Teamuitjes, verjaardagen, feesten en vriendenweekenden.</span></li>
+            <li><strong>Door heel Nederland</strong><span>Wij verzorgen workshops zowel bij u op locatie als in ons eigen atelier.</span></li>
+            <li><strong>De juiste kunstenaar</strong><span>Wij koppelen ervaren kunstenaars die passen bij uw groep en uw wensen.</span></li>
+            <li><strong>Geen ervaring nodig</strong><span>Workshops voor alle niveaus. Alle materialen zijn inbegrepen.</span></li>
+            <li><strong>Plezier staat voorop</strong><span>Samen een dag vol plezier beleven en met een eigen creatie naar huis gaan.</span></li>
+            <li><strong>Veel stijlen</strong><span>Schilderen, kaarsen maken, mozaïeken, sieraden en nog veel meer.</span></li>
+        </ul>
+    </section>
+
+    <section class="hoofdstuk" id="logo">
+        <header>
+            <span class="label">Naam en logo</span>
+            <h2>Woordmerk met aardbei</h2>
+            <p class="lead">Het logo is de naam zelf, vet gezet in de huisletter, met links ervan de pixelaardbei als beeldmerk.</p>
+        </header>
+        <div class="logo-rij">
+            <div class="logo-vak">
+                <span class="woordmerk"><img src="images/aardbei.png" alt="">Aardblij Workshops</span>
+                <span class="label">Op wit · zwart · gewicht 700</span>
+            </div>
+            <div class="logo-vak op-groen">
+                <span class="woordmerk"><img src="images/aardbei.png" alt="">Aardblij Workshops</span>
+                <span class="label">Op bosgroen · wit · gewicht 700</span>
+            </div>
+            <div class="logo-vak op-room">
+                <img class="icoon" src="apple-touch-icon.png" alt="">
+                <span class="label">Icoon · tabblad en beginscherm</span>
+            </div>
+            <div class="logo-vak">
+                <img class="deelbeeld" src="images/deelafbeelding.jpg" alt="Deelafbeelding van Aardblij Workshops">
+                <span class="label">Deelafbeelding · 1200 × 630</span>
+            </div>
+        </div>
+        <ul class="regels">
+            <li>Schrijf de naam altijd als <strong>Aardblij</strong>: één woord, alleen de A als hoofdletter. Dus niet <em>AardBlij</em> of <em>Aard Blij</em>.</li>
+            <li>In de navigatie en de voettekst staat de volledige naam <strong>Aardblij Workshops</strong>. In lopende tekst mag ook kort <strong>Aardblij</strong>.</li>
+            <li>De oude naam <em>Creatieve Workshops</em> wordt nergens meer gebruikt.</li>
+            <li>In de navigatie brengt een klik op de aardbei u naar de homepage; een klik op de naam brengt u terug naar bovenaan de pagina. De naam kleurt bosgroen bij aanwijzen, de aardbei wordt iets groter.</li>
+            <li>De aardbei staat links van de naam: 56 px groot (48 px op iPad en telefoon, 42 px op een kleine telefoon), met een kleine tussenruimte. De naam blijft altijd op één regel. Gebruik altijd het bestand zonder achtergrond, <code>images/aardbei.png</code>, zodat er geen wit vlak achter de aardbei te zien is.</li>
+            <li>De aardbei is ook het icoontje in het browsertabblad (<code>favicon.ico</code>). Op het beginscherm van een iPhone staat hij op een roomkleurig vlak (<code>apple-touch-icon.png</code>).</li>
+            <li>Wordt een pagina gedeeld via WhatsApp, Facebook of LinkedIn, dan verschijnt de deelafbeelding (<code>images/deelafbeelding.jpg</code>): de aardbei in een roomkleurige cirkel op bosgroen, met de naam en de kernzin <em>Creatieve workshops door heel Nederland</em>.</li>
+        </ul>
+    </section>
+
+    <section class="hoofdstuk" id="kleuren">
+        <header>
+            <span class="label">Kleuren</span>
+            <h2>Bosgroen op wit</h2>
+            <p class="lead">Het palet is rustig: veel wit, zwarte tekst en één groen dat alles draagt wat aangeklikt kan worden. Klik op een kleurcode om hem te kopiëren.</p>
+        </header>
+        <div class="kleuren">
+            <div class="kleur">
+                <div class="staal" style="background: var(--groen);"></div>
+                <div class="kleur-info">
+                    <strong>Bosgroen</strong>
+                    <button type="button" class="hex" data-hex="#2d5016">#2d5016</button>
+                    <p>Hoofdkleur. Knoppen, voettekst, accenten, kaders, plaatshouders voor beeld en de achtergrond van de deelafbeelding.</p>
+                    <span class="contrast">Wit hierop: 9,3 : 1</span>
+                </div>
+            </div>
+            <div class="kleur">
+                <div class="staal" style="background: var(--groen-donker);"></div>
+                <div class="kleur-info">
+                    <strong>Donker bosgroen</strong>
+                    <button type="button" class="hex" data-hex="#1f3810">#1f3810</button>
+                    <p>Alleen voor de aanwijsstand (hover) van groene knoppen.</p>
+                    <span class="contrast">Wit hierop: 12,9 : 1</span>
+                </div>
+            </div>
+            <div class="kleur">
+                <div class="staal" style="background: var(--wit);"></div>
+                <div class="kleur-info">
+                    <strong>Wit</strong>
+                    <button type="button" class="hex" data-hex="#ffffff">#ffffff</button>
+                    <p>Achtergrond van alle pagina's en tekst op groen.</p>
+                </div>
+            </div>
+            <div class="kleur">
+                <div class="staal" style="background: var(--zwart);"></div>
+                <div class="kleur-info">
+                    <strong>Zwart</strong>
+                    <button type="button" class="hex" data-hex="#000000">#000000</button>
+                    <p>Koppen, logo, navigatie en de belangrijkste lopende tekst.</p>
+                    <span class="contrast">Op wit: 21 : 1</span>
+                </div>
+            </div>
+            <div class="kleur">
+                <div class="staal" style="background: var(--grijs-tekst);"></div>
+                <div class="kleur-info">
+                    <strong>Tekstgrijs</strong>
+                    <button type="button" class="hex" data-hex="#555555">#555555</button>
+                    <p>Aanvullende tekst op workshoppagina's, zoals uitleg in kaders en kaarten.</p>
+                    <span class="contrast">Op wit: 7,5 : 1</span>
+                </div>
+            </div>
+            <div class="kleur">
+                <div class="staal" style="background: var(--lijn);"></div>
+                <div class="kleur-info">
+                    <strong>Lijngrijs</strong>
+                    <button type="button" class="hex" data-hex="#e0e0e0">#e0e0e0</button>
+                    <p>Randen van kaarten en de navigatie, en de links in de groene voettekst.</p>
+                    <span class="contrast">Op bosgroen: 7,0 : 1</span>
+                </div>
+            </div>
+            <div class="kleur">
+                <div class="staal" style="background: var(--zacht);"></div>
+                <div class="kleur-info">
+                    <strong>Zachtgrijs</strong>
+                    <button type="button" class="hex" data-hex="#f5f5f5">#f5f5f5</button>
+                    <p>Zachte vlakken, zoals de achtergrond achter grote foto's. Voor kaarten en kaders: <code>#fafafa</code> en <code>#f9f9f9</code>.</p>
+                </div>
+            </div>
+            <div class="kleur">
+                <div class="staal" style="background: radial-gradient(circle at 40% 35%, var(--room-licht) 0%, var(--room) 65%, var(--room-donker) 100%);"></div>
+                <div class="kleur-info">
+                    <strong>Room</strong>
+                    <button type="button" class="hex" data-hex="#f4ecdc">#f4ecdc</button>
+                    <p>Alleen voor plaatshouders van beeld: het beeldvlak bovenaan de workshoppagina's en de cirkel in de deelafbeelding. Loopt zacht over van <code>#fffaf0</code> naar <code>#e9dcc3</code>.</p>
+                    <span class="contrast">Donker bosgroen hierop: 11,0&nbsp;:&nbsp;1</span>
+                </div>
+            </div>
+            <div class="kleur">
+                <div class="staal" style="background: radial-gradient(circle at 30% 75%, var(--roze-licht) 0%, var(--roze) 60%, var(--roze-donker) 100%);"></div>
+                <div class="kleur-info">
+                    <strong>Zacht roze</strong>
+                    <button type="button" class="hex" data-hex="#fbe1dd">#fbe1dd</button>
+                    <p>Alleen voor plaatshouders van beeld. Een knipoog naar de aardbei. Nu niet in gebruik, sinds de homepage echte foto's heeft. Loopt zacht over van <code>#fff3f1</code> naar <code>#f3c9c3</code>.</p>
+                    <span class="contrast">Donker bosgroen hierop: 10,4&nbsp;:&nbsp;1</span>
+                </div>
+            </div>
+        </div>
+        <p class="notitie">Gebruik geen andere kleuren voor knoppen of koppen. Groen betekent: hier kunt u iets doen. Room en zacht roze zijn alleen voor vlakken waar later een foto komt.</p>
+    </section>
+
+    <section class="hoofdstuk" id="typografie">
+        <header>
+            <span class="label">Typografie</span>
+            <h2>De systeemletter</h2>
+            <p class="lead">De website gebruikt de standaardletter van het apparaat van de bezoeker (San Francisco op Apple, Segoe UI op Windows, Roboto op Android). Die laadt direct en leest prettig op elk scherm.</p>
+        </header>
+        <p class="notitie"><code>font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;</code></p>
+        <div class="typelijst">
+            <div class="typerij">
+                <div class="meta"><strong>Grote titel</strong><span>44 px · 700 · telefoon 24–28 px</span></div>
+                <div class="voorbeeld" style="font-size: clamp(26px, 4.4vw, 44px); font-weight: 700; line-height: 1.15;">Klaar om te creëren?</div>
+            </div>
+            <div class="typerij">
+                <div class="meta"><strong>Sectietitel</strong><span>40 px · 700 · telefoon 24–28 px</span></div>
+                <div class="voorbeeld" style="font-size: clamp(24px, 4vw, 40px); font-weight: 700; line-height: 1.2;">Onze Workshops</div>
+            </div>
+            <div class="typerij">
+                <div class="meta"><strong>Tussenkop</strong><span>36 px · 700 · telefoon 24–28 px</span></div>
+                <div class="voorbeeld" style="font-size: clamp(22px, 3.6vw, 36px); font-weight: 700; line-height: 1.2;">Over Aardblij Workshops</div>
+            </div>
+            <div class="typerij">
+                <div class="meta"><strong>Kaarttitel</strong><span>20 px · 600</span></div>
+                <div class="voorbeeld" style="font-size: 20px; font-weight: 600;">Cocktail Kaarsen Maken</div>
+            </div>
+            <div class="typerij">
+                <div class="meta"><strong>Lopende tekst</strong><span>15 px · 400 · regelafstand 1,8</span></div>
+                <div class="voorbeeld" style="font-size: 15px; line-height: 1.8;">Wij bieden workshops voor alle niveaus, u hoeft geen ervaring te hebben. Ontdek wat u kunt creëren samen met gepassioneerde kunstenaars en beleef samen een dag vol plezier.</div>
+            </div>
+            <div class="typerij">
+                <div class="meta"><strong>Navigatie en knoppen</strong><span>14 px · 500</span></div>
+                <div class="voorbeeld" style="font-size: 14px; font-weight: 500;">Home · Workshops · Prijzen · Offerte · FAQ</div>
+            </div>
+        </div>
+        <p class="notitie">Vier gewichten, elk met een vaste taak: 700 voor titels en logo, 600 voor kaarttitels, 500 voor navigatie en knoppen, 400 voor lopende tekst.</p>
+    </section>
+
+    <section class="hoofdstuk" id="onderdelen">
+        <header>
+            <span class="label">Onderdelen</span>
+            <h2>Bouwstenen van de pagina's</h2>
+            <p class="lead">Deze onderdelen komen op elke pagina terug. Gebruik ze zoals ze zijn, zodat bezoekers ze overal herkennen.</p>
+        </header>
+        <div class="onderdelen">
+            <div class="onderdeel">
+                <h3>Knop</h3>
+                <div class="podium">
+                    <button type="button" class="cta-button">Reserveer</button>
+                    <button type="button" class="cta-button groot">Workshops Bekijken</button>
+                </div>
+                <p>Bosgroen met witte tekst, hoeken van 4 px, donkerder groen bij aanwijzen. De grote versie (16 px) staat onder een rij workshops. Op telefoon is de knop in het menu even breed als het scherm.</p>
+            </div>
+            <div class="onderdeel">
+                <h3>Workshopkaart</h3>
+                <div class="podium">
+                    <div class="workshop-card">
+                        <div class="workshop-image" aria-hidden="true"><img class="pixel-icoon" src="images/iconen/alpaca.svg" alt="" width="12" height="12"></div>
+                        <div class="workshop-content">
+                            <div class="workshop-title">Schilderen tussen Alpacas</div>
+                            <div class="workshop-description">Schilder in een unieke setting omringd door vriendelijke alpacas.</div>
+                            <span class="workshop-link">Meer informatie</span>
+                        </div>
+                    </div>
+                </div>
+                <p>Witte kaart met een lichtgrijze rand, hoeken van 8 px en een zachte schaduw. Bij aanwijzen komt de kaart 2 px omhoog. Bovenaan een beeldvlak van 220 px hoog.</p>
+            </div>
+            <div class="onderdeel">
+                <h3>Uitlichtkader</h3>
+                <div class="podium">
+                    <div class="highlight-box">
+                        <h4>Praktische Informatie</h4>
+                        <p>Alle materialen zijn inbegrepen. U hoeft alleen uw creativiteit mee te brengen!</p>
+                    </div>
+                </div>
+                <p>Voor praktische informatie en tips op workshoppagina's. Een groene streep van 4 px links, titel in bosgroen. Het kader <em>Praktische Informatie</em> begint met een korte opsomming (duur, begeleiding, materialen, niveau, foto's) met bosgroene opsommingstekens, en daaronder een zin over boeken en contact.</p>
+            </div>
+            <div class="onderdeel">
+                <h3>Kenmerkkaart</h3>
+                <div class="podium">
+                    <div class="feature-card">
+                        <h4>Mee Naar Huis</h4>
+                        <p>U gaat naar huis met uw eigen handgemaakte creatie.</p>
+                    </div>
+                </div>
+                <p>Korte voordelen van een workshop, in een raster van twee kaarten naast elkaar (op telefoon onder elkaar).</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="hoofdstuk" id="toon">
+        <header>
+            <span class="label">Toon en woorden</span>
+            <h2>Gastvrij, beleefd en vol plezier</h2>
+            <p class="lead">Aardblij spreekt bezoekers altijd aan met <strong>u</strong>. De toon is warm en uitnodigend, nooit stijf. Schrijf zoals een gastvrouw die u ontvangt in het atelier.</p>
+        </header>
+        <div class="paren">
+            <div class="paar">
+                <div><span class="wel-label">Wel</span><p>Maak uw eigen geurende cocktailkaarsen.</p></div>
+                <div><span class="niet-label">Niet</span><p class="niet-tekst">Maak je eigen geurende cocktailkaarsen.</p></div>
+            </div>
+            <div class="paar">
+                <div><span class="wel-label">Wel</span><p>Ontdek Aardblij door heel Nederland!</p></div>
+                <div><span class="niet-label">Niet</span><p class="niet-tekst">Ontdek onze workshops in heel Nederland.</p></div>
+            </div>
+            <div class="paar">
+                <div><span class="wel-label">Wel</span><p>Wij verzorgen onze workshops zowel bij u op locatie als in ons eigen atelier.</p></div>
+                <div><span class="niet-label">Niet</span><p class="niet-tekst">We komen ook naar jou toe!</p></div>
+            </div>
+            <div class="paar">
+                <div><span class="wel-label">Wel</span><p>Wij bieden workshops voor alle niveaus, u hoeft geen ervaring te hebben.</p></div>
+                <div><span class="niet-label">Niet</span><p class="niet-tekst">Of je nu net je creatieve reis begint of je vaardigheden wilt verbeteren.</p></div>
+            </div>
+            <div class="paar">
+                <div><span class="wel-label">Wel</span><p>Een workshop voor 1 tot 10 deelnemers kost € 450 incl. btw.</p></div>
+                <div><span class="niet-label">Niet</span><p class="niet-tekst">Een workshop voor 1 tot 10 deelnemers kost € 450 excl. btw.</p></div>
+            </div>
+        </div>
+
+        <h3>Woordenlijst</h3>
+        <div class="tabelvak">
+            <table>
+                <thead>
+                    <tr><th>Gebruik</th><th>Niet gebruiken</th><th>Toelichting</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>u, uw</td><td>je, jij, jouw</td><td>Overal, ook in knoppen, kaarten en korte omschrijvingen.</td></tr>
+                    <tr><td>jullie (alleen vanuit de klant)</td><td>jullie (tegen de klant)</td><td>Waar de klant zelf aan het woord is, zoals in een FAQ-vraag, mag de klant ons met <em>jullie</em> aanspreken: <em>Waar in Nederland geven jullie workshops?</em> Wij spreken de klant altijd aan met u.</td></tr>
+                    <tr><td>door heel Nederland</td><td>in heel Nederland</td><td>Wij reizen het hele land door.</td></tr>
+                    <tr><td>op locatie en in ons eigen atelier</td><td>alleen bij ons</td><td>Altijd allebei noemen waar het over de plek gaat.</td></tr>
+                    <tr><td>workshop</td><td>les, klas</td><td>Wij geven workshops, geen lessen.</td></tr>
+                    <tr><td>teamuitje, feestje, vriendenweekend</td><td>bedrijfsevenement</td><td>De gelegenheden waar onze bezoekers zelf aan denken.</td></tr>
+                    <tr><td>Aardblij Workshops, Aardblij</td><td>Creatieve Workshops</td><td>De oude naam is vervangen.</td></tr>
+                    <tr><td>€ 450 incl. btw</td><td>excl. btw, exclusief btw</td><td>Alle prijzen zijn inclusief btw. Schrijf het euroteken met een spatie ervoor, en <em>incl. btw</em> in kleine letters.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Knopteksten</h3>
+        <div class="knopteksten">
+            <button type="button" class="cta-button">Reserveer</button>
+            <button type="button" class="cta-button">Reserveer Nu</button>
+            <button type="button" class="cta-button">Workshops Bekijken</button>
+            <button type="button" class="cta-button">Ontdek Meer Workshops</button>
+            <button type="button" class="cta-button">Meer informatie</button>
+        </div>
+        <p class="notitie">Begin met een werkwoord en houd het kort. Schrijf <em>Meer informatie</em> voluit, niet <em>Meer info</em>.</p>
+    </section>
+
+    <section class="hoofdstuk" id="ruimte">
+        <header>
+            <span class="label">Ruimte en schermen</span>
+            <h2>Ruim op desktop, compact op telefoon</h2>
+            <p class="lead">Elke pagina werkt op desktop, iPad en telefoon. De witruimte en het aantal kaarten per rij schalen mee met het scherm.</p>
+        </header>
+        <div class="tabelvak">
+            <table>
+                <thead>
+                    <tr><th>Scherm</th><th>Breedte</th><th>Ruimte per sectie</th><th>Kaarten per rij</th><th>Menu</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Desktop</td><td class="num">vanaf 1025 px</td><td class="num">80 px boven/onder, 60 px zijkant</td><td class="num">3</td><td>Volledig</td></tr>
+                    <tr><td>iPad liggend</td><td class="num">769–1024 px</td><td class="num">70 px / 40 px</td><td class="num">3 (workshoppagina: 2)</td><td>Volledig</td></tr>
+                    <tr><td>Telefoon, iPad staand</td><td class="num">481–768 px</td><td class="num">40 px / 20 px</td><td class="num">1</td><td>Hamburgermenu</td></tr>
+                    <tr><td>Kleine telefoon</td><td class="num">tot 480 px</td><td class="num">30 px / 15 px</td><td class="num">1</td><td>Hamburgermenu</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <ul class="regels">
+            <li>Hoeken: knoppen en kaders 4 px, kaarten 8 px (6 px op telefoon), lijstjes 6 px.</li>
+            <li>Schaduw alleen op workshopkaarten, prijskaarten en het offerteformulier: <code>0 1px 3px rgba(0,0,0,.08)</code>. Workshop- en prijskaarten krijgen bij aanwijzen <code>0 4px 12px rgba(0,0,0,.12)</code> en komen 2 px omhoog; het offerteformulier beweegt niet.</li>
+            <li>De navigatiebalk blijft bovenaan staan tijdens het scrollen en heeft een dunne lijngrijze rand eronder. Op desktop staat het logo links, het menu precies in het midden en de knop Reserveer helemaal rechts.</li>
+        </ul>
+    </section>
+
+    <section class="hoofdstuk" id="beeld">
+        <header>
+            <span class="label">Beeld</span>
+            <h2>Foto's van mensen die samen maken</h2>
+            <p class="lead">De homepage heeft echte foto's: drie dia's in de wisselende foto bovenaan (die wisselt elke 2 seconden, begint én eindigt op de groepsfoto met <em>Creatieve workshops door heel Nederland</em>, na twee rondes) en een foto naast <em>Over Aardblij Workshops</em>. Elders staan nog plaatshouders: bosgroene vlakken met een icoon per workshop en roomkleurige vlakken met een icoon bovenaan de workshoppagina's.</p>
+        </header>
+        <ul class="regels">
+            <li>De drie dia's bovenaan de homepage zijn foto's van rand tot rand, elk met een korte kop in wit (44 px, 700) en een zin eronder. Een zachte donkere overgang achter de tekst houdt die leesbaar. Staan de mensen op een foto juist onderaan, dan komt de tekst bovenaan (zoals bij de groepsfoto). De bolletjes eronder zijn wit; het bolletje van de getoonde dia is bosgroen met een witte rand, zodat het op lichte én donkere dia's opvalt.</li>
+            <li>Vervang de plaatshouders door echte foto's van workshops: deelnemers aan het werk, handen met verf of wax, en de creaties die ze mee naar huis nemen.</li>
+            <li>Laat plezier zien: lachende groepen, een gezellige tafel, een hapje en een drankje.</li>
+            <li>Toon beide plekken: het eigen atelier én workshops op locatie, zoals een kantoor of een alpacaweide.</li>
+            <li>Gebruik liefst daglicht en natuurlijke kleuren, die passen bij het bosgroen.</li>
+            <li><strong>Iconen zijn pixelart, geen emoji's.</strong> Net als de aardbei in het logo zijn alle kleine iconen (bij kenmerkkaarten, lijstjes, kaders en in lege fotovlakken) pixelart van 12 × 12 pixels, in de kleuren van de huisstijl. Ze staan als bestand in <code>images/iconen/</code>.</li>
+            <li>Een nieuw icoon tekent u in <code>tools/pixel-iconen.txt</code>: één letter per pixel, een punt is doorzichtig. Daarna maakt <code>python3 tools/pixelicoon.py</code> de bestanden aan (met <code>--vervang</code> worden emoji's in de pagina's meteen vervangen). Alle iconen staan op een rij in <code>tools/pixel-iconen-overzicht.html</code>.</li>
+            <li>Gebruik op een bosgroen vlak geen iconen die zelf donkergroen zijn; die vallen weg.</li>
+            <li>Een foto in een dia zetten: vervang de inhoud van de dia door een <code>&lt;img&gt;</code> en haal de klassen <code>plaatshouder</code> weg. De uitleg staat ook als notitie in <code>index.html</code>.</li>
+            <li>Een foto in een ander fotovlak zetten (workshopkaart, het vlak bovenaan een workshoppagina of naast <em>Over Aardblij Workshops</em>): vervang het icoon in dat vlak door een <code>&lt;img src="images/..." alt="..."&gt;</code>. De foto vult dan vanzelf het hele vlak, zonder te vervormen, ook als de bezoeker inzoomt.</li>
+            <li>Heeft een workshop een foto bovenaan zijn eigen pagina, dan krijgen de kaarten van die workshop (homepage en workshoppagina) dezelfde foto, in een lichtere versie: <code>images/naam-kaart.jpg</code>, 800 px breed.</li>
+            <li>Een extra foto in de tekst van een workshoppagina staat gecentreerd, maximaal 520 px breed, met hoeken van 8 px (<code>&lt;figure class="inhoud-foto"&gt;</code>). Zet hem bij de tekst waar hij over gaat, zoals de foto van het aansteken bij de tips over branden.</li>
+            <li>Een productfoto zonder achtergrond (vrijstaand, als PNG) staat in zijn geheel op het roomkleurige vlak, zonder bijsnijden: geef het fotovlak de klasse <code>vrijstaand</code>. Zo blijft ook een kleine foto scherp.</li>
+            <li>Drie foto's naast elkaar, bijvoorbeeld van materialen, staan in een <code>fotorij</code> (een foto mag een kort onderschrift krijgen: cursief, tekstgrijs. Alleen als de klant daarom vraagt of als het onderschrift echt iets toevoegt; de meeste foto's hebben er geen nodig): vierkant, met hoeken van 8 px. Voor twee foto's naast elkaar: <code>fotorij twee</code>.</li>
+            <li>Zet het belangrijkste altijd <strong>in het midden</strong> van de foto. Op smalle of lage schermen wordt een foto aan de randen bijgesneden; het midden blijft altijd zichtbaar.</li>
+            <li>Beschrijf in de <code>alt</code>-tekst kort wat er op de foto te zien is, bijvoorbeeld <em>Deelnemers schilderen tussen de alpaca's</em>. Dat helpt bezoekers met een schermlezer en Google.</li>
+        </ul>
+        <div class="tabelvak">
+            <table>
+                <thead>
+                    <tr><th>Plek</th><th>Vorm</th><th>Handige maat</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Wisselende foto homepage</td><td>Liggend, breed</td><td class="num">2400 × 1200 px</td></tr>
+                    <tr><td>Fotovlak bovenaan een workshoppagina</td><td>Liggend of vierkant</td><td class="num">1600 × 1200 px</td></tr>
+                    <tr><td>Workshopkaart</td><td>Liggend</td><td class="num">1200 × 750 px</td></tr>
+                    <tr><td>Naast <em>Over Aardblij Workshops</em></td><td>Vierkant of staand</td><td class="num">1200 × 1200 px</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <ul class="regels">
+            <li>Sla foto's op als JPG van liefst minder dan 300 KB per stuk, zodat de site ook op een telefoon snel laadt.</li>
+        </ul>
+    </section>
+
+</main>
+
+<footer class="voet">
+    <div class="wrap">
+        <span><strong>Aardblij Workshops</strong> · Huisstijl</span>
+        <span>Bijgewerkt november 2026</span>
+    </div>
+</footer>
+
+<script>
+    document.querySelectorAll('.hex').forEach(function (knop) {
+        knop.addEventListener('click', function () {
+            var waarde = knop.getAttribute('data-hex');
+            var origineel = knop.textContent;
+            function selecteer() {
+                var bereik = document.createRange();
+                bereik.selectNodeContents(knop);
+                var selectie = window.getSelection();
+                selectie.removeAllRanges();
+                selectie.addRange(bereik);
+            }
+            try {
+                navigator.clipboard.writeText(waarde).then(function () {
+                    knop.textContent = 'Gekopieerd';
+                    setTimeout(function () { knop.textContent = origineel; }, 1200);
+                }, selecteer);
+            } catch (e) {
+                selecteer();
+            }
+        });
+    });
+</script>
+</body>
+</html>

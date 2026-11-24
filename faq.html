@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Antwoorden op veelgestelde vragen over onze workshops: locatie, ervaring, materialen, prijzen en boeken. Staat uw vraag er niet tussen? Mail ons.">
+    <title>Veelgestelde vragen · Aardblij Workshops</title>
+    <link rel="stylesheet" href="stijl.css?v=20261124-6">
+    <link rel="canonical" href="https://aardblijworkshops.nl/faq.html">
+    <meta name="theme-color" content="#2d5016">
+
+    <!-- Icoontje in het browsertabblad en op het beginscherm van telefoons -->
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" href="images/icoon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Voorbeeld bij delen via WhatsApp, Facebook, LinkedIn enz. -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Aardblij Workshops">
+    <meta property="og:locale" content="nl_NL">
+    <meta property="og:title" content="Veelgestelde vragen · Aardblij Workshops">
+    <meta property="og:description" content="Antwoorden op veelgestelde vragen over onze workshops: locatie, ervaring, materialen, prijzen en boeken. Staat uw vraag er niet tussen? Mail ons.">
+    <meta property="og:url" content="https://aardblijworkshops.nl/faq.html">
+    <meta property="og:image" content="https://aardblijworkshops.nl/images/deelafbeelding.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Aardblij Workshops: creatieve workshops door heel Nederland">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        /* Alleen voor deze pagina. Gedeelde stijl (titel, intro, afsluitend blok) staat in stijl.css */
+
+        /* Onderwerpen */
+        .onderwerpen {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 40px;
+        }
+
+        .onderwerpen a {
+            display: inline-block;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            font-size: 14px;
+            font-weight: 500;
+            color: #000000;
+            text-decoration: none;
+            background: #ffffff;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .onderwerpen a:hover { border-color: #2d5016; color: #2d5016; }
+
+        /* Vragen */
+        .faq-section { padding-top: 0; }
+
+        .faq-groep {
+            max-width: 800px;
+            margin: 0 auto;
+            scroll-margin-top: 90px;
+        }
+
+        .faq-groep + .faq-groep { margin-top: 56px; }
+
+        .groep-titel {
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .faq-lijst {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-item + .faq-item { border-top: 1px solid #e0e0e0; }
+
+        .faq-item summary {
+            list-style: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 1.15rem 1.5rem;
+            font-size: 1.05rem;
+            font-weight: 600;
+            background: #ffffff;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .faq-item summary::-webkit-details-marker { display: none; }
+
+        .faq-item summary:hover { color: #2d5016; background: #fafafa; }
+
+        .faq-item summary::after {
+            content: "+";
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            display: grid;
+            place-items: center;
+            border-radius: 4px;
+            background: #2d5016;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1;
+        }
+
+        .faq-item[open] summary::after { content: "−"; }
+        .faq-item[open] summary { color: #2d5016; background: #fafafa; }
+
+        .antwoord {
+            padding: 0 1.5rem 1.4rem;
+            background: #fafafa;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #555555;
+        }
+
+        .antwoord p + p { margin-top: 10px; }
+
+        .antwoord ul { margin: 6px 0 10px; padding-left: 20px; }
+
+        .antwoord li::marker { color: #2d5016; }
+
+        .antwoord strong { color: #000000; font-weight: 600; }
+
+        .antwoord a {
+            color: #2d5016;
+            font-weight: 500;
+        }
+
+        .antwoord a:hover { color: #1f3810; }
+
+        .antwoord .cta-button {
+            color: #ffffff;
+            margin-top: 14px;
+        }
+
+        .antwoord .cta-button:hover { color: #ffffff; }
+
+        /* Contactkader: wit, gecentreerd en iets ruimer dan het gedeelde uitlichtkader */
+        .contact-section { background-color: #fafafa; border-block: 1px solid #e0e0e0; }
+
+        .highlight-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 1.75rem 2rem;
+        }
+
+        .highlight-box h2 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #2d5016;
+            margin-bottom: 10px;
+        }
+
+        .highlight-box .mail {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #000000;
+            overflow-wrap: anywhere;
+        }
+
+        .highlight-box .mail:hover { color: #2d5016; }
+
+        /* Telefoon en iPad staand */
+        @media (max-width: 768px) {
+            .onderwerpen { margin-top: 30px; }
+
+            .groep-titel { font-size: 24px; }
+            .faq-groep + .faq-groep { margin-top: 40px; }
+            .faq-lijst { border-radius: 6px; }
+            .faq-item summary { padding: 1rem 1.15rem; font-size: 1rem; }
+            .antwoord { padding: 0 1.15rem 1.2rem; font-size: 0.9rem; }
+
+            .highlight-box { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigatie -->
+    <nav>
+        <div class="logo"><a href="index.html" class="logo-home" title="Naar de homepage"><img src="images/aardbei.png" alt="Aardblij Workshops, naar de homepage" class="logo-beeld" width="56" height="56"></a><a href="#top" class="logo-tekst" title="Terug naar boven">Aardblij Workshops</a></div>
+        <button class="nav-toggle" aria-label="Menu openen" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="workshops.html">Workshops</a></li>
+                <li><a href="prijzen.html">Prijzen</a></li>
+                <li><a href="offerte.html">Offerte</a></li>
+                <li><a href="faq.html" aria-current="page">FAQ</a></li>
+            </ul>
+            <button type="button" class="cta-button" data-aanvraag>Reserveer</button>
+        </div>
+    </nav>
+
+    <!-- Intro -->
+    <section id="top">
+        <div class="inner">
+            <h1 class="page-title">Veelgestelde vragen</h1>
+            <div class="intro">
+                <p>Hier vindt u antwoorden op de vragen die wij het vaakst krijgen. Staat uw vraag er niet tussen? Stuur ons gerust een e-mail, wij helpen u graag verder.</p>
+            </div>
+            <ul class="onderwerpen">
+                <li><a href="#locatie">Locatie</a></li>
+                <li><a href="#workshops">De workshops</a></li>
+                <li><a href="#boeken">Boeken en prijzen</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Vragen -->
+    <section class="faq-section">
+        <div class="inner">
+
+            <div class="faq-groep" id="locatie">
+                <h2 class="groep-titel">Locatie</h2>
+                <div class="faq-lijst">
+                    <details class="faq-item" open>
+                        <summary>Waar in Nederland geven jullie workshops?</summary>
+                        <div class="antwoord">
+                            <p>Door heel Nederland! Wij komen graag naar u toe, waar u ook bent.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Komen jullie bij ons op locatie, of gaan wij naar jullie toe?</summary>
+                        <div class="antwoord">
+                            <p>Dat kan allebei. Wij verzorgen onze workshops zowel bij u op locatie als in ons eigen atelier in de Betuwe.</p>
+                            <p>Bij u op locatie regelt u de ruimte en de catering, en nemen wij de kunstenaar en alle materialen mee. Wilt u ook de ruimte of de catering uit handen geven? Vermeld het in uw offerteaanvraag, dan regelen wij het graag.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Hoe bereid ik de locatie voor?</summary>
+                        <div class="antwoord">
+                            <p>Een ruime vergaderzaal, een kantine, een zaal bij een restaurant of bij mooi weer een plek buiten: op veel plekken kunnen wij een workshop geven. Voor de workshop neemt de kunstenaar contact met u op om de ruimte en het afleveren van de materialen te bespreken.</p>
+                            <p><strong>Wat wij meenemen:</strong> de kunstenaar neemt alle materialen mee, en ook afdekmateriaal zoals zeil, zodat de ruimte beschermd is tegen verfspetters en andere vlekken.</p>
+                            <p><strong>Wat wij van u nodig hebben:</strong></p>
+                            <ul>
+                                <li>tafels en stoelen voor alle deelnemers;</li>
+                                <li>genoeg ruimte rond de tafels om goed te kunnen werken;</li>
+                                <li>goed licht, en bij epoxy gieten een goed geventileerde ruimte;</li>
+                                <li>bij Verf Therapie extra vrije ruimte, want daar wordt volop met verf gegooid. Een grote zaal of een plek buiten is dan ideaal.</li>
+                            </ul>
+                            <p><strong>Opbouwen en opruimen:</strong> de kunstenaar is ongeveer 30 tot 45 minuten voor de start aanwezig om de tafels klaar te zetten, af te dekken en de materialen neer te leggen. Na afloop kost het opruimen ook zo'n 30 tot 45 minuten. Plan daarom liever geen andere activiteit direct na de workshop in dezelfde ruimte. Wij laten de ruimte achter zoals wij die aantroffen.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Wat is er inbegrepen in het atelier?</summary>
+                        <div class="antwoord">
+                            <p>Voor groepen van 2 tot 20 deelnemers bent u van harte welkom in ons eigen atelier in de Betuwe. Koffie, thee, frisdrank, bier, wijn en een hapje zijn dan inbegrepen.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <div class="faq-groep" id="workshops">
+                <h2 class="groep-titel">De workshops</h2>
+                <div class="faq-lijst">
+                    <details class="faq-item">
+                        <summary>Ik wil een workshop op maat, kan dat?</summary>
+                        <div class="antwoord">
+                            <p>Ja zeker! Heeft u een eigen idee, een thema of een bijzondere wens? Wij stellen graag een unieke workshop samen die helemaal past bij u en uw groep. Wij zoeken er de juiste kunstenaar bij en denken met u mee over de invulling, de locatie en alles daaromheen.</p>
+                            <p>Vraag vrijblijvend een offerte aan en vertel ons wat u voor ogen heeft. Wij nemen zo snel mogelijk contact met u op.</p>
+                            <a href="offerte.html" class="cta-button">Offerte Aanvragen</a>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Heb ik ervaring nodig?</summary>
+                        <div class="antwoord">
+                            <p>Nee, u hoeft geen ervaring te hebben. Wij bieden workshops voor alle niveaus. Onze kunstenaars begeleiden u stap voor stap, zodat iedereen met plezier meedoet.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Moet ik zelf materialen meenemen?</summary>
+                        <div class="antwoord">
+                            <p>Nee, alle materialen zijn inbegrepen. Van verf en doeken tot wax en kralen: wij nemen alles mee, richten de ruimte in en laten alles weer netjes achter. U hoeft alleen uw creativiteit mee te brengen!</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Mag ik mijn creatie mee naar huis nemen?</summary>
+                        <div class="antwoord">
+                            <p>Natuurlijk. Iedere deelnemer gaat naar huis met een eigen handgemaakte creatie.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Welke workshops kan ik kiezen?</summary>
+                        <div class="antwoord">
+                            <p>Wij bieden veel verschillende stijlen, van schilderen tussen de alpaca's en cocktailkaarsen maken tot mozaïeken, sieraden maken en bedazzelen. Bekijk al onze workshops op de <a href="workshops.html">workshoppagina</a>.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <div class="faq-groep" id="boeken">
+                <h2 class="groep-titel">Boeken en prijzen</h2>
+                <div class="faq-lijst">
+                    <details class="faq-item">
+                        <summary>Wat kost een workshop?</summary>
+                        <div class="antwoord">
+                            <p>De prijs hangt alleen af van de grootte van uw groep, en geldt voor de hele groep, niet per persoon. Een workshop voor 1 tot 10 deelnemers kost bijvoorbeeld € 450 incl. btw. Alle tarieven vindt u op de <a href="prijzen.html">prijzenpagina</a>.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Voor hoeveel personen kan ik boeken?</summary>
+                        <div class="antwoord">
+                            <p>Voor kleine en grote groepen: van een verjaardag met een paar vrienden tot een teamuitje met de hele organisatie. Heeft u meer dan 30 deelnemers? Dan stellen wij graag een voorstel op maat voor u samen, met meerdere kunstenaars.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Hoe boek ik een workshop?</summary>
+                        <div class="antwoord">
+                            <p>Via het <a href="offerte.html">offerteformulier</a> op deze website, of via de knop <a href="#" data-aanvraag>Reserveer</a> rechtsboven op elke pagina. Vertel ons welke workshop u wilt, met hoeveel personen en waar. Wij nemen zo snel mogelijk contact met u op om alles af te stemmen.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-section" id="contact">
+        <div class="highlight-box">
+            <h2>Hoe kan ik contact met jullie opnemen?</h2>
+            <p>Heeft u een vraag die hier niet tussen staat, of wilt u even overleggen over uw plannen? Stuur ons een e-mail, wij reageren zo snel mogelijk.</p>
+            <a href="mailto:AardblijWorkshops@outlook.com" class="mail">AardblijWorkshops@outlook.com</a>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Klaar om te creëren?</h2>
+        <p>Vraag vrijblijvend een offerte aan. Wij nemen zo snel mogelijk contact met u op om alles af te stemmen.</p>
+        <div class="cta-knoppen">
+            <a href="offerte.html" class="cta-button groot">Offerte Aanvragen</a>
+            <a href="workshops.html" class="cta-button groot">Workshops Bekijken</a>
+        </div>
+    </section>
+
+    <!-- Voettekst -->
+    <footer>
+        <p>&copy; 2026 Aardblij Workshops. Alle rechten voorbehouden.</p>
+        <div class="footer-links">
+            <a href="privacybeleid.html">Privacybeleid</a>
+            <a href="algemene-voorwaarden.html">Algemene Voorwaarden</a>
+            <a href="contact.html">Contact</a>
+            <span>Instagram</span>
+        </div>
+    </footer>
+
+    <script src="https://forminit.com/sdk/v1/forminit.js"></script>
+
+    <script src="site.js?v=20261124-6"></script>
+    <script src="reserveer.js?v=20261124-6"></script>
+</body>
+</html>
