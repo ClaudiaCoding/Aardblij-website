@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creatieve workshops voor teamuitjes, feestjes en vriendenweekenden, door heel Nederland. Bij u op locatie of in ons eigen atelier in de Betuwe. Geen ervaring nodig.">
+    <title>Aardblij Workshops</title>
+    <link rel="stylesheet" href="stijl.css?v=20261124-6">
+    <link rel="canonical" href="https://aardblijworkshops.nl/">
+    <meta name="theme-color" content="#2d5016">
+
+    <!-- Icoontje in het browsertabblad en op het beginscherm van telefoons -->
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" href="images/icoon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Voorbeeld bij delen via WhatsApp, Facebook, LinkedIn enz. -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Aardblij Workshops">
+    <meta property="og:locale" content="nl_NL">
+    <meta property="og:title" content="Aardblij Workshops: creatieve workshops door heel Nederland">
+    <meta property="og:description" content="Creatieve workshops voor teamuitjes, feestjes en vriendenweekenden, door heel Nederland. Bij u op locatie of in ons eigen atelier in de Betuwe. Geen ervaring nodig.">
+    <meta property="og:url" content="https://aardblijworkshops.nl/">
+    <meta property="og:image" content="https://aardblijworkshops.nl/images/deelafbeelding.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Aardblij Workshops: creatieve workshops door heel Nederland">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        /* Alleen voor deze pagina. Gedeelde stijl (kaarten, afsluitend blok) staat in stijl.css */
+        
+
+        /* Kop met wisselende foto's (van rand tot rand, zonder de ruimte van een gewone sectie) */
+        .hero {
+            position: relative;
+            /* Nooit hoger dan het scherm minus de menubalk (ook bij inzoomen), maximaal 600 px */
+            height: clamp(260px, calc(100vh - 90px), 600px);
+            height: clamp(260px, calc(100svh - 90px), 600px);
+            width: 100%;
+            padding: 0;
+            overflow: hidden;
+            background-color: #2d5016;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #999;
+            background-color: #f5f5f5;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Dia met foto en tekst: zachte donkere overgang onderaan zodat de witte tekst leesbaar blijft */
+        .foto-dia::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.28) 38%, rgba(0, 0, 0, 0) 62%);
+            pointer-events: none;
+        }
+
+        .dia-tekst {
+            position: absolute;
+            left: 24px;
+            right: 24px;
+            bottom: 72px;
+            z-index: 1;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .dia-titel {
+            font-size: 44px;
+            font-weight: 700;
+            line-height: 1.15;
+            max-width: 22em;
+            margin: 0 auto 10px;
+        }
+
+        .dia-onder { font-size: 18px; }
+
+        /* Dia waar de mensen in het midden staan: tekst bovenaan, over de bomen */
+        .dia-boven::after {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.25) 30%, rgba(0, 0, 0, 0) 50%);
+        }
+
+        .dia-boven .dia-tekst { top: 28px; bottom: auto; }
+
+        /* Uitsnede van de groepsfoto: groep iets lager in beeld, zodat de tekst op de bomen valt */
+        .dia-boven img { object-position: 50% 30%; }
+
+        /* Heel brede schermen: iets lager uitsnijden zodat de voorste rij in beeld blijft */
+        @media (min-width: 1440px) {
+            .dia-boven img { object-position: 50% 45%; }
+        }
+
+        /* Tijdelijke plaatjes in de huisstijl, tot er echte foto's zijn */
+        .plaatshouder {
+            padding: 0 24px 40px;
+            text-align: center;
+        }
+
+        .plaatshouder-groen { background: radial-gradient(circle at 25% 20%, #3d6b1f 0%, #2d5016 55%, #1f3810 100%); color: #ffffff; }
+        .plaatshouder-room  { background: radial-gradient(circle at 75% 25%, #fffaf0 0%, #f4ecdc 60%, #e9dcc3 100%); color: #1f3810; }
+        .plaatshouder-roze  { background: radial-gradient(circle at 30% 75%, #fff3f1 0%, #fbe1dd 60%, #f3c9c3 100%); color: #1f3810; }
+
+        .plaatshouder-beeld {
+            display: block;
+            font-size: 84px;
+            line-height: 1;
+            letter-spacing: 0.15em;
+            margin-bottom: 28px;
+        }
+
+        .plaatshouder-titel {
+            font-size: 44px;
+            font-weight: 700;
+            line-height: 1.15;
+            max-width: 16em;
+            margin: 0 auto 14px;
+        }
+
+        .plaatshouder-tekst {
+            font-size: 18px;
+            opacity: 0.85;
+        }
+
+        /* Bolletjes onder de wisselende foto */
+        .carousel-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 10;
+        }
+
+        .carousel-dot {
+            position: relative;
+            width: 12px;
+            height: 12px;
+            padding: 0;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border: 2px solid white;
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Groter klikvlak voor vingers, zonder dat het bolletje groter oogt */
+        .carousel-dot::after {
+            content: "";
+            position: absolute;
+            inset: -10px;
+        }
+
+        .carousel-dot:focus-visible {
+            outline: 2px solid #ffffff;
+            outline-offset: 4px;
+            box-shadow: 0 0 0 6px rgba(45, 80, 22, 0.6);
+        }
+
+        .carousel-dot.active {
+            background-color: #2d5016;  /* groen met witte rand: zichtbaar op lichte én donkere dia's */
+        }
+
+        /* Uitgelichte workshops */
+        .workshops {
+            background-color: #ffffff;
+        }
+
+        .section-title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .workshops-footer {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .workshops-footer .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            font-size: 16px;
+        }
+
+        .workshops-intro {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #000000;
+        }
+
+        .workshops-intro p {
+            margin-bottom: 20px;
+        }
+
+        /* Over Aardblij Workshops */
+        .about {
+            background-color: #ffffff;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 36px;
+            margin-bottom: 25px;
+            color: #000000;
+        }
+
+        .about-content p {
+            font-size: 0.95rem;
+            color: #000000;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 400px;
+            background-color: #2d5016;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            border-radius: 8px;
+        }
+
+        /* iPad liggend */
+        @media (max-width: 1024px) {
+            .about {
+                gap: 50px;
+            }
+
+            .section-title {
+                font-size: 34px;
+            }
+
+        }
+
+        /* Telefoon en iPad staand */
+        @media (max-width: 768px) {
+
+            .hero {
+                height: clamp(220px, calc(100vh - 80px), 320px);
+                height: clamp(220px, calc(100svh - 80px), 320px);
+            }
+
+            .plaatshouder-beeld { font-size: 52px; margin-bottom: 18px; }
+            .dia-tekst { bottom: 52px; }
+            .dia-boven .dia-tekst { top: 18px; }
+            .dia-titel { font-size: 26px; margin-bottom: 6px; }
+            .dia-onder { font-size: 15px; }
+            .plaatshouder-titel { font-size: 28px; }
+            .plaatshouder-tekst { font-size: 15px; }
+
+            .section-title {
+                font-size: 28px;
+                margin-bottom: 30px;
+            }
+
+            .workshops-intro {
+                font-size: 0.9rem;
+                margin-bottom: 40px;
+            }
+
+            .workshops-intro p {
+                margin-bottom: 15px;
+                line-height: 1.6;
+            }
+
+            .workshops-footer {
+                margin-top: 40px;
+            }
+
+            .workshops-footer .cta-button {
+                padding: 0.85rem 1.75rem;
+                font-size: 14px;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 40px 20px;
+            }
+
+            .about-content h2 {
+                font-size: 28px;
+                margin-bottom: 20px;
+            }
+
+            .about-content p {
+                font-size: 0.9rem;
+                margin-bottom: 15px;
+                line-height: 1.6;
+            }
+
+            .about-image {
+                height: 300px;
+                font-size: 2.5rem;
+            }
+
+            .cta-section p {
+                line-height: 1.6;
+            }
+
+            .cta-section .cta-button {
+                padding: 0.85rem 1.75rem;
+                font-size: 14px;
+            }
+
+        }
+
+        /* Kleine telefoon */
+        @media (max-width: 480px) {
+
+            .hero {
+                height: clamp(200px, calc(100vh - 70px), 240px);
+                height: clamp(200px, calc(100svh - 70px), 240px);
+            }
+
+            .plaatshouder { padding-bottom: 30px; }
+            .plaatshouder-beeld { font-size: 40px; margin-bottom: 12px; }
+            .dia-tekst { left: 15px; right: 15px; bottom: 44px; }
+            .dia-boven .dia-tekst { top: 14px; }
+            .dia-titel { font-size: 21px; }
+            .dia-onder { font-size: 13px; }
+            .plaatshouder-titel { font-size: 22px; margin-bottom: 8px; }
+            .plaatshouder-tekst { font-size: 13px; }
+
+            .carousel-controls {
+                bottom: 20px;
+                gap: 10px;
+            }
+
+            .carousel-dot {
+                width: 10px;
+                height: 10px;
+            }
+
+            .section-title {
+                font-size: 24px;
+                margin-bottom: 25px;
+            }
+
+            .workshops-intro {
+                font-size: 0.85rem;
+                max-width: 100%;
+                margin-bottom: 30px;
+            }
+
+            .about {
+                padding: 30px 15px;
+            }
+
+            .about-content h2 {
+                font-size: 24px;
+            }
+
+            .about-image {
+                height: 250px;
+                font-size: 2rem;
+            }
+
+            .cta-section h2 {
+                margin-bottom: 15px;
+            }
+
+            .cta-section p {
+                font-size: 13px;
+                margin-bottom: 20px;
+            }
+
+        }
+
+        /* Lage schermen (telefoon liggend, ingezoomd): tekst in de dia's iets kleiner */
+        @media (max-height: 500px) and (min-width: 769px) {
+            .plaatshouder { padding-bottom: 36px; }
+            .plaatshouder-beeld { font-size: 48px; margin-bottom: 12px; }
+            .plaatshouder-titel { font-size: 32px; margin-bottom: 8px; }
+            .plaatshouder-tekst { font-size: 16px; }
+            .dia-tekst { bottom: 52px; }
+            .dia-titel { font-size: 30px; }
+            .dia-onder { font-size: 16px; }
+        }
+
+        /* Minder beweging: foto's wisselen niet vanzelf en vervagen niet */
+        @media (prefers-reduced-motion: reduce) {
+            .carousel-slide,
+            .carousel-dot {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigatie -->
+    <nav>
+        <div class="logo"><a href="#home" class="logo-home" title="Naar de homepage"><img src="images/aardbei.png" alt="Aardblij Workshops, naar de homepage" class="logo-beeld" width="56" height="56"></a><a href="#home" class="logo-tekst" title="Terug naar boven">Aardblij Workshops</a></div>
+        <button class="nav-toggle" aria-label="Menu openen" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="workshops.html">Workshops</a></li>
+                <li><a href="prijzen.html">Prijzen</a></li>
+                <li><a href="offerte.html">Offerte</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+            <button type="button" class="cta-button" data-aanvraag>Reserveer</button>
+        </div>
+    </nav>
+
+    <!-- Kop met wisselende foto's -->
+    <section class="hero" id="home">
+        <h1 class="visueel-verborgen">Aardblij Workshops: creatieve workshops door heel Nederland</h1>
+        <div class="carousel-container" aria-label="Foto's van onze workshops">
+            <!-- Andere foto? Zet hem in de map images/ en pas src (bestandsnaam) en alt (korte beschrijving) aan.
+                 Valt het belangrijkste buiten beeld? Verschuif de uitsnede met style="object-position: 50% 30%"
+                 (eerste getal = links/rechts, tweede = boven/onder).
+                 De dia met data-eind is de foto waarop de dia's stoppen. -->
+            <div class="carousel-slide active foto-dia dia-boven" data-eind>
+                <img src="images/home-groep.jpg" alt="Een vrolijke groep in witte schorten en gekke pruiken toont trots de eigen schilderijen" width="1500" height="1125">
+                <div class="dia-tekst">
+                    <p class="dia-titel">Creatieve workshops door heel Nederland</p>
+                    <p class="dia-onder">Bij u op locatie of in ons eigen atelier in de Betuwe</p>
+                </div>
+            </div>
+            <div class="carousel-slide foto-dia">
+                <img src="images/home-alpacas.jpg" alt="Deelnemers schilderen aan picknicktafels in de wei, met nieuwsgierige alpaca's vlak achter hen" width="1800" height="1200" loading="lazy">
+                <div class="dia-tekst">
+                    <p class="dia-titel">Schilderen tussen de alpaca's</p>
+                    <p class="dia-onder">Op de Alpaca Farm in de Betuwe</p>
+                </div>
+            </div>
+            <div class="carousel-slide foto-dia">
+                <img src="images/home-water.jpg" alt="Drie deelnemers in overalls schilderen samen op een groot zeil aan het water" width="1800" height="1350" loading="lazy">
+                <div class="dia-tekst">
+                    <p class="dia-titel">Geen ervaring nodig</p>
+                    <p class="dia-onder">Alle materialen zijn inbegrepen</p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-controls" role="group" aria-label="Kies een foto">
+            <button type="button" class="carousel-dot active" aria-label="Foto 1 van 3" aria-current="true"></button>
+            <button type="button" class="carousel-dot" aria-label="Foto 2 van 3"></button>
+            <button type="button" class="carousel-dot" aria-label="Foto 3 van 3"></button>
+        </div>
+    </section>
+
+    <!-- Uitgelichte workshops -->
+    <section class="workshops" id="workshops">
+        <h2 class="section-title">Onze Workshops</h2>
+        <div class="workshops-intro">
+            <p>Ontdek Aardblij door heel Nederland! Wilt u een bedrijfsafdeling eens iets heel anders laten ervaren, wilt u een creatieve verjaardag, of zoekt u een ontspannende bezigheid als onderdeel van een vriendenweekend? Dan is een van onze populaire workshops misschien wel iets voor u!</p>
+            <p>Onze workshops worden hoog gewaardeerd door de deelnemers. Wij geven workshops in diverse stijlen: schilderen, kaarsen maken, mozaïeken en nog veel meer! Wij verzorgen onze workshops zowel bij u op locatie als in ons eigen atelier in de Betuwe.</p>
+        </div>
+        <div class="workshops-grid">
+            <div class="workshop-card">
+                <div class="workshop-image"><img src="images/cocktail-kaarsen-kaart.jpg" alt="Drie zelfgemaakte cocktailkaarsen in coupeglazen: roze met limoen, oranje met sinaasappel en een espresso martini met koffiebonen" width="800" height="600" loading="lazy" style="object-position: 50% 35%;"></div>
+                <div class="workshop-content">
+                    <h3 class="workshop-title">Cocktail Kaarsen Maken</h3>
+                    <p class="workshop-description">Maak uw eigen geurende cocktailgeïnspireerde kaarsen. Leer alles over wax, geuren en kleurtoevoeging van onze experts. Perfecte handgemaakte geschenken!</p>
+                    <a href="cocktail-kaarsen.html" class="workshop-link">Meer informatie</a>
+                </div>
+            </div>
+
+            <div class="workshop-card">
+                <div class="workshop-image"><img src="images/alpacas-schilderen-kaart.jpg" alt="Deelnemers schilderen in de wei, met alpaca's vlak bij het hek" width="800" height="533" loading="lazy"></div>
+                <div class="workshop-content">
+                    <h3 class="workshop-title">Schilderen tussen Alpacas</h3>
+                    <p class="workshop-description">Schilder in een unieke setting omringd door vriendelijke alpaca's. Een rustige en inspirerende ervaring waar dieren en kunst samenkomen.</p>
+                    <a href="alpacas-schilderen.html" class="workshop-link">Meer informatie</a>
+                </div>
+            </div>
+
+            <div class="workshop-card">
+                <div class="workshop-image"><img src="images/sieraden-edelsteen.jpg" alt="Drie kettingen van groene, roze en grijze edelsteenkralen met gouden tussenstukjes" width="736" height="1014" loading="lazy" style="object-position: 50% 55%;"></div>
+                <div class="workshop-content">
+                    <h3 class="workshop-title">Sieraden Maken</h3>
+                    <p class="workshop-description">Ontwerp en maak uw eigen unieke armbanden en kettingen met prachtige kralen. Onze ervaren makers leren u de mooiste kraaltechnieken.</p>
+                    <a href="sieraden-maken.html" class="workshop-link">Meer informatie</a>
+                </div>
+            </div>
+        </div>
+        <div class="workshops-footer">
+            <a href="workshops.html" class="cta-button">Ontdek Meer Workshops</a>
+        </div>
+    </section>
+
+    <!-- Over Aardblij Workshops -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2>Over Aardblij Workshops</h2>
+            <p>Aardblij Workshops komt uit de Betuwe, het fruitgebied van Nederland. Sinds 2020 geven wij met veel plezier kunstworkshops door heel Nederland, zowel bij u op locatie als in ons eigen atelier.</p>
+            <p>Wij organiseren de perfecte creatieve ervaring voor uw teamuitje, feestje of vriendenweekend. Wij begrijpen dat elke groep uniek is. Daarom passen wij onze workshops volledig aan uw wensen en doelstelling aan.</p>
+            <p>Wij koppelen u aan ervaren kunstenaars die perfect bij uw groep passen. Wij bieden workshops voor alle niveaus, u hoeft geen ervaring te hebben. Ontdek wat u kunt creëren samen met gepassioneerde kunstenaars en beleef samen een dag vol plezier.</p>
+        </div>
+        <div class="about-image"><img src="images/home-tekenen.jpg" alt="Een deelnemer tekent geconcentreerd een alpaca, met flessen verf op tafel" width="1200" height="800" loading="lazy"></div>
+    </section>
+
+    <!-- Klaar om te creëren -->
+    <section class="cta-section" id="contact">
+        <h2>Klaar om te creëren?</h2>
+        <p>Bekijk ons volledige assortiment aan workshops.</p>
+        <a href="workshops.html" class="cta-button">Workshops Bekijken</a>
+    </section>
+
+    <!-- Voettekst -->
+    <footer>
+        <p>&copy; 2026 Aardblij Workshops. Alle rechten voorbehouden.</p>
+        <div class="footer-links">
+            <a href="privacybeleid.html">Privacybeleid</a>
+            <a href="algemene-voorwaarden.html">Algemene Voorwaarden</a>
+            <a href="contact.html">Contact</a>
+            <span>Instagram</span>
+        </div>
+    </footer>
+
+    <script>
+        // Wisselende foto bovenaan
+        // - wisselt elke 2 seconden, draait 2 rondes en stopt dan op de dia met data-eind
+        // - pauzeert zolang de muis erop staat of een bolletje de toetsenbordfocus heeft
+        // - wisselt niet vanzelf bij "minder beweging" in de instellingen van de bezoeker
+        // - bolletjes zijn knoppen: met Tab erheen, Enter/spatie kiest, pijltjes gaan naar de vorige/volgende foto
+        (function () {
+            const kop = document.querySelector('.hero');
+            const fotos = Array.from(document.querySelectorAll('.carousel-slide'));
+            const bolletjes = Array.from(document.querySelectorAll('.carousel-dot'));
+            const minderBeweging = window.matchMedia('(prefers-reduced-motion: reduce)');
+            const WACHTTIJD = 2000;
+            const RONDES = 2;
+            const EIND = Math.max(0, fotos.findIndex(foto => foto.hasAttribute('data-eind')));
+            let huidige = 0;
+            let rondes = 0;
+            let klaar = false;
+            let timer = null;
+            let muisErop = false;
+            let focusErin = false;
+
+            function toon(nummer) {
+                huidige = (nummer + fotos.length) % fotos.length;
+                fotos.forEach((foto, n) => {
+                    foto.classList.toggle('active', n === huidige);
+                    foto.setAttribute('aria-hidden', n === huidige ? 'false' : 'true');
+                });
+                bolletjes.forEach((bolletje, n) => {
+                    bolletje.classList.toggle('active', n === huidige);
+                    if (n === huidige) bolletje.setAttribute('aria-current', 'true');
+                    else bolletje.removeAttribute('aria-current');
+                });
+            }
+
+            function stop() {
+                clearInterval(timer);
+                timer = null;
+            }
+
+            // Volgende dia; na 2 volledige rondes stoppen op de einddia
+            function volgende() {
+                const nieuw = (huidige + 1) % fotos.length;
+                if (nieuw === 0) rondes++;
+                toon(nieuw);
+                if (rondes >= RONDES && huidige === EIND) {
+                    klaar = true;
+                    stop();
+                }
+            }
+
+            function start() {
+                stop();
+                if (klaar || minderBeweging.matches || muisErop || focusErin || document.hidden) return;
+                timer = setInterval(volgende, WACHTTIJD);
+            }
+
+            // Pauzeren met de muis
+            kop.addEventListener('mouseenter', () => { muisErop = true; stop(); });
+            kop.addEventListener('mouseleave', () => { muisErop = false; start(); });
+
+            // Pauzeren zolang een bolletje de toetsenbordfocus heeft
+            kop.addEventListener('focusin', () => { focusErin = true; stop(); });
+            kop.addEventListener('focusout', e => {
+                if (!kop.contains(e.relatedTarget)) { focusErin = false; start(); }
+            });
+
+            // Bolletjes: klikken, Enter of spatie
+            bolletjes.forEach((bolletje, n) => {
+                bolletje.addEventListener('click', () => { toon(n); start(); });
+
+                // Pijltjestoetsen naar de vorige of volgende foto
+                bolletje.addEventListener('keydown', e => {
+                    let doel = null;
+                    if (e.key === 'ArrowRight') doel = huidige + 1;
+                    if (e.key === 'ArrowLeft') doel = huidige - 1;
+                    if (doel === null) return;
+                    e.preventDefault();
+                    toon(doel);
+                    bolletjes[huidige].focus();
+                });
+            });
+
+            // Opnieuw beoordelen als de instelling of het tabblad verandert
+            if (minderBeweging.addEventListener) minderBeweging.addEventListener('change', start);
+            document.addEventListener('visibilitychange', start);
+
+            // Bij "minder beweging" meteen de einddia tonen
+            toon(minderBeweging.matches ? EIND : 0);
+            start();
+        })();
+    </script>
+    <script src="https://forminit.com/sdk/v1/forminit.js"></script>
+    <script src="site.js?v=20261124-6"></script>
+    <script src="reserveer.js?v=20261124-6"></script>
+</body>
+</html>
